@@ -14,11 +14,11 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " required by FuzzyFinder
-Bundle 'L9' 
+Bundle 'L9'
 Bundle 'FuzzyFinder'
 "Bundle 'rails.vim'
 " HTML/CSS Editing
-" Bundle 'tristen/vim-sparkup.git' 
+" Bundle 'tristen/vim-sparkup.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wincent/Command-T'
 Bundle 'vim-scripts/taglist.vim'
@@ -36,6 +36,9 @@ Bundle 'mbbill/code_complete'
 Bundle 'sukima/xmledit'
 " Non-GitHub repos ...
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Options
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
 set ruler
 set nobackup
@@ -74,7 +77,7 @@ set incsearch
 "Omnicomplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ofu=syntaxcomplete"Complete
-au BufNewFile,BufRead,BufEnter *.cpp,*.cc,*.cxx,*.hpp,*.hh,*.hxx 
+au BufNewFile,BufRead,BufEnter *.cpp,*.cc,*.cxx,*.hpp,*.hh,*.hxx
     \ set omnifunc=omni#cpp#complete#Main
 
 let g:neocomplcache_enable_at_startup = 1
@@ -98,14 +101,13 @@ let g:Tex_Folding = 0
 let g:Tex_AutoFolding = 0
 let g:Tex_DefaultTargetFormat = 'pdf'
 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autocmd BufRead,BufNewFile *.py syntax on
 "autocmd BufRead,BufNewFile *.py set ai
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufRead *.py set smartindent
+            \ cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MiniBufExplorer
@@ -114,6 +116,16 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Whitespace
+" See <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+highlight ExtraWhitespace ctermbg=red guibg=red
+" Show trailing whitespace and spaces before a tab:
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OS X
