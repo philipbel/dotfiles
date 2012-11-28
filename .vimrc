@@ -43,7 +43,7 @@ set nopaste
 set number
 
 syntax on
-colorscheme default
+colorscheme zenburn
 
 set hlsearch		" highlighting
 set expandtab		" Don't expand tabs
@@ -52,7 +52,8 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set autoindent
-set textwidth=0
+set textwidth=80
+set colorcolumn=+1 # Available in Vim 7.3+
 set modeline
 " This enables automatic filetype detection and automatic indentation
 filetype plugin indent on
@@ -75,6 +76,8 @@ set incsearch
 set ofu=syntaxcomplete"Complete
 au BufNewFile,BufRead,BufEnter *.cpp,*.cc,*.cxx,*.hpp,*.hh,*.hxx 
     \ set omnifunc=omni#cpp#complete#Main
+
+let g:neocomplcache_enable_at_startup = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
