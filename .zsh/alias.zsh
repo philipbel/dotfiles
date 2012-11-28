@@ -66,7 +66,7 @@ alias lh='cat /etc/hosts'
 # On Darwin, prefer Emacs.app, if it's available
 if [ `uname -s` = "Darwin" ]; then
 	if [ -x /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-		alias emacs='open /Applications/Emacs.app'
+		alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 	fi
 fi
 alias e=emacs
