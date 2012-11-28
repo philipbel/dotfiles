@@ -1,0 +1,35 @@
+set autoindent
+unset backup
+unset casesensitive
+set historylog
+set morespace
+unset mouse
+set tabsize 4
+unset tabstospaces
+set multibuffer
+
+include /usr/share/nano/asm.nanorc
+include /usr/share/nano/groff.nanorc
+include /usr/share/nano/html.nanorc
+include /usr/share/nano/java.nanorc
+include /usr/share/nano/man.nanorc
+include /usr/share/nano/mutt.nanorc
+include /usr/share/nano/nanorc.nanorc
+include /usr/share/nano/patch.nanorc
+include /usr/share/nano/perl.nanorc
+include /usr/share/nano/pov.nanorc
+include /usr/share/nano/python.nanorc
+include /usr/share/nano/ruby.nanorc
+include /usr/share/nano/sh.nanorc
+include /usr/share/nano/tex.nanorc
+
+include ~/.nano/c.nanorc
+include ~/.nano/conf.nanorc
+include ~/.nano/css.nanorc
+include ~/.nano/http.nanorc
+include ~/.nano/javascript.nanorc
+include ~/.nano/makefile.nanorc
+include ~/.nano/php.nanorc
+include ~/.nano/xml.nanorc
+include ~/.nano/xorg.nanorc
+
