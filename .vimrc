@@ -53,7 +53,7 @@ set tabstop=4
 set softtabstop=4
 set autoindent
 set textwidth=80
-set colorcolumn=+1 # Available in Vim 7.3+
+set colorcolumn=+1 " Available in Vim 7.3+
 set modeline
 " This enables automatic filetype detection and automatic indentation
 filetype plugin indent on
