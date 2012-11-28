@@ -26,12 +26,15 @@ Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/vcscommand.vim'
 Bundle 'vim-scripts/utl.vim'
 Bundle 'vim-scripts/OmniCppComplete'
-" Syntax-sensitive comments
-" 
+Bundle 'vim-scripts/vimspell'
+Bundle 'vim-scripts/Zenburn'
+Bundle 'vim-scripts/grep.vim'
+Bundle 'Shougo/neocomplcache'
 Bundle 'tomtom/tcomment_vim'
-" Non-GitHub repos
-
-
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'mbbill/code_complete'
+Bundle 'sukima/xmledit'
+" Non-GitHub repos ...
 
 set autoindent
 set ruler
