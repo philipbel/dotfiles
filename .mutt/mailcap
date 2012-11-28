@@ -1,0 +1,28 @@
+text/html; lynx -cookie_file=/dev/null -dump -force_html '%s'; needsterminal; copiousoutput; description=HTML Text; /
+
+image/*; eog '%s'; description=Image; test=test -n "$DISPLAY"
+image/*; cacaview '%s'; description=Image;
+
+
+application/x-gunzip; file-roller '%s'; test=test -n "$DISPLAY"
+application/x-gunzip; gzcat; copiousoutput
+
+application/x-tar-gz; file-roller '%s'; test=test -n "$DISPLAY"
+application/x-tar-gz; tar tzf '%s'; copiousoutput
+
+application/x-gzip; file-roller '%s'; test=test -n "$DISPLAY"
+application/x-gzip; tar tzf '%s'; copiousoutput
+
+application/x-bzip2; file-roller '%s'; test=test -n "$DISPLAY"
+application/x-bzip2; tar tjf '%s'; copiousoutput
+
+application/zip; file-roller '%s'; test=test -n "$DISPLAY"
+application/zip; unzip -l '%s'; copiousoutput
+
+application/pdf; evince '%s'; test=test -n "$DISPLAY"
+application/pdf; pdf2ps | ps2ascii '%s'; copiousoutput
+application/postscript; evince '%s'; test=test -n "$DISPLAY"
+application/postscript; ps2ascii '%s'; copiousoutput
+
+
+#nametemplate=%s.html

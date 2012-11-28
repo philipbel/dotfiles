@@ -1,0 +1,172 @@
+# See http://www.mail-archive.com/mutt-users@mutt.org/msg22512.html
+
+
+##################################################
+# Server
+set smtp_url = smtp://
+
+##################################################
+# Mailboxes
+# From mutt's manual:
+# * ! -- refers to your $spoolfile (incoming) mailbox
+# * > -- refers to your $mbox file
+# * < -- refers to your $record file
+# * - or !! -- refers to the file you've last visited
+# * ~ -- refers to your home directory
+# * = or + -- refers to your $folder directory
+# * @alias -- refers to the default save folder as determined by the address of the alias
+
+set mbox_type = Maildir
+set folder = ~/Mail
+set spoolfile = +/INBOX
+set postponed = +Drafts
+set record = +Sent
+set trash = +Trash
+
+source ~/.mutt/mailboxes
+
+set mail_check = 10
+# After that many seconds of being idle, check for mail
+set timeout = 10
+
+
+
+##################################################
+# Options
+# Don't ask about moving
+set move = no
+# Purge messages
+set delete = yes
+# Include the original message in replies and when forwarding
+set include = yes
+set forward_quote = yes
+# Automatically use the address specified in Reply-To
+set reply_to
+# Just read/new flags
+unset mark_old
+
+# That's bad!
+set sig_on_top = yes
+
+#set editor='emacs --no-splash -nw >/dev/null 2>&1'
+set editor="vim '+set tw=78'"
+# Also can be done in Vim itself: au FileType mail set tw=65
+
+# Sorting
+set sort = threads
+set sort_aux = date
+unset strict_threads
+
+set index_format = "%4C %Z | %{%b %d - %H:%M} | %-30.30L %s"
+
+# Don't abort composing a message if I give a blank body
+set abort_unmodified=no
+
+# In the pager, don't display + at the beginning of wrapped lines;
+# it's distracting
+set markers=no
+
+# When going to the next page, keep the bottom two lines of this page
+# on top so that I have some context
+set pager_context=2
+
+# If I'm at the end of a message and I try to go to the next page,
+# don't move me to the next message
+set pager_stop=yes
+
+# Don't say "Press any key to continue..." after I finish running an
+# external program
+set prompt_after=no
+
+# When I quit mutt, ask for confirmation
+set quit=ask-yes
+
+# Sort messages by the date received. By default, mutt sorts messages
+# by the date sent, which is going by the sender's computer clock. But
+# some people have their clock off by YEARS which messes up the sort
+# order!
+#set sort=date-received
+
+# use date-received to thread messages
+# set thread_received=yes
+
+# Don't ask me to press a key to continue after I did a shell escape
+# and came back
+set wait_key=no
+
+# Leave a right margin of 1 character when wrapping lines in the pager
+set wrapmargin=1
+
+# Wrap + sidebar's width (30 + 80)
+set wrap=110
+
+
+##################################################
+# Aliases
+set alias_file = ~/.mutt/aliases
+set reverse_alias = yes
+source $alias_file
+
+##################################################
+# Identity
+set realname = 'Philip Belemezov'
+set from = 'philip@belemezov.net'
+
+##################################################
+# Cache
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+
+##################################################
+# HTML messages
+auto_view text/html image/* application/x-pgp-message application/x-gunzip application/x-tar-gz application/x-gzip application/x-bzip2 application/pdf application/postscript
+set implicit_autoview
+alternative_order text/plain text/html
+set mailcap_path=~/.mutt/mailcap
+
+##################################################
+# Address Book
+set query_command = "mutt_ldap_query '%s'"
+
+##################################################
+# Sidebar
+set sidebar_width = 30
+color sidebar_new yellow default
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+
+##################################################
+# Shortcuts
+macro index gi "<change-folder> +<enter>" "Go to inbox"
+macro index gb "<change-folder> +bugs<enter>" "Go to bugs"
+macro pager "\Cx\Cb" "<change-folder>?"                                   # Folder list.
+
+macro index \CA "T.\n;WN;t" "Mark all messages as read"
+
+#bind index \cr search-opposite
+#bind index \cs search
+#bind pager \cr search-opposite
+#bind pager \cs search
+
+
+macro index \CR "<read-thread><next-new-then-unread>" "Mark thread read and move to next unread message"
+
+macro index "\ev"    "<pipe-message>less<enter>"                          # View the message in less.
+macro pager "\ev"    "<pipe-message>less<enter>"                          # View the message in less.
+macro pager "w"      "<enter-command>set invsmart_wrap invmarkers<enter>" # Toggle wrap stuff
+
+
+
+# nmzmail
+#macro generic S "<shell-escape>nmzmail<return><esc>c~/.nmzmail/result<return>" "Search via nmzmail"
+# Namazu/nmzmail
+macro generic ,S "<shell-escape>nmzmail -r ~/Mail/Search<enter>" "search via nmzmail"
+# Load the results mailbox
+macro generic ,,s "<change-folder><kill-line>=Search<enter>" "load the search results mailbox"
+mailboxes "+Search" 
+
