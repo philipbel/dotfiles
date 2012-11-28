@@ -1,0 +1,11 @@
+; generated_rule Emacs
+( if 
+( begin 
+( is ( application_name ) "emacs23" )
+) 
+( begin 
+( maximize_vertically )
+( geometry "+716+" )
+( println "match" )
+)
+)

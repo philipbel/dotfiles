@@ -1,0 +1,10 @@
+; generated_rule Firefox
+( if 
+( begin 
+( is ( application_name ) "Firefox" )
+) 
+( begin 
+( maximize )
+( println "match" )
+)
+)
