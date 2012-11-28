@@ -133,3 +133,12 @@ set clipboard=unnamed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F10> :NERDTreeToggle<CR>
 imap <F10> <Esc>:NERDTreeToggle<CR> # NERD Tree in insert mode
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Local file
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let s:local_vimrc = '~/.vimrc.local'
+if filereadable(s:local_vimrc)
+    source s:local_vimrc
+endif
+

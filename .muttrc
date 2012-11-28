@@ -170,3 +170,7 @@ macro generic ,S "<shell-escape>nmzmail -r ~/Mail/Search<enter>" "search via nmz
 macro generic ,,s "<change-folder><kill-line>=Search<enter>" "load the search results mailbox"
 mailboxes "+Search" 
 
+###############################################################################
+# Local file
+###############################################################################
+source ~/.muttrc.local

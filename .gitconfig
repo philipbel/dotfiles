@@ -27,4 +27,7 @@
 	spellingdictionary = en_US
 
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
+
+[include]
+    path = .gitconfig.local

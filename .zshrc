@@ -80,3 +80,10 @@ fi
 # Python
 export PYTHONDONTWRITEBYTECODE=1
 
+###############################################################################
+# Local file
+###############################################################################
+LOCAL_ZSHRC="~/.zshrc.local"
+if [ -r "$LOCAL_ZSHRC" ]; then
+    source "$LOCAL_ZSHRC"
+fi

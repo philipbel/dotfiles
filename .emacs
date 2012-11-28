@@ -1540,4 +1540,10 @@ Symbols matching the text at point are put first in the completion list."
 ;; Places:
 ;; * <emacswiki.org>
 ;; * <planet.emacsen.org>
-;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Local file
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load "~/.emacs.local" t)
+
