@@ -1,0 +1,751 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.2.2" />
+<style type="text/css">
+/* Debug borders */
+p, li, dt, dd, div, pre, h1, h2, h3, h4, h5, h6 {
+/*
+  border: 1px solid red;
+*/
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+tt {
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  font-family: sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  border-bottom: 2px solid silver;
+  padding-top: 0.5em;
+}
+
+div.sectionbody {
+  font-family: serif;
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revision {
+  font-family: sans-serif;
+}
+
+div#footer {
+  font-family: sans-serif;
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble,
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-right: 10%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+div.listingblock {
+  margin-right: 0%;
+}
+div.listingblock > div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock > div.content {
+  padding-left: 2.0em;
+}
+
+div.attribution {
+  text-align: right;
+}
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 2px solid silver;
+}
+
+div.exampleblock > div.content {
+  border-left: 2px solid silver;
+  padding: 0.5em;
+}
+
+div.verseblock div.content {
+  white-space: pre;
+}
+
+div.imageblock div.content { padding-left: 0; }
+div.imageblock img { border: 1px solid silver; }
+span.image img { border-style: none; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: italic;
+}
+dd > *:first-child {
+  margin-top: 0;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.olist2 {
+  list-style-type: lower-alpha;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+tfoot {
+  font-weight: bold;
+}
+
+div.hlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hlist td {
+  padding-bottom: 5px;
+}
+td.hlist1 {
+  vertical-align: top;
+  font-style: italic;
+  padding-right: 0.8em;
+}
+td.hlist2 {
+  vertical-align: top;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-content {
+  padding-left: 2.0em;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: blue; }
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+window.onload = function(){generateToc(4)}
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, October 2006. License: GPL */
+
+function getText(el) {
+  var text = "";
+  for (var i = el.firstChild; i != null; i = i.nextSibling) {
+    if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+      text += i.data;
+    else if (i.firstChild != null)
+      text += getText(i);
+  }
+  return text;
+}
+
+function TocEntry(el, text, toclevel) {
+  this.element = el;
+  this.text = text;
+  this.toclevel = toclevel;
+}
+
+function tocEntries(el, toclevels) {
+  var result = new Array;
+  var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+  // Function that scans the DOM tree for header elements (the DOM2
+  // nodeIterator API would be a better technique but not supported by all
+  // browsers).
+  var iterate = function (el) {
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+        var mo = re.exec(i.tagName)
+        if (mo)
+          result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+        iterate(i);
+      }
+    }
+  }
+  iterate(el);
+  return result;
+}
+
+// This function does the work. toclevels = 1..4.
+function generateToc(toclevels) {
+  var toc = document.getElementById("toc");
+  var entries = tocEntries(document.getElementsByTagName("body")[0], toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "toc" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+}
+/*]]>*/
+</script>
+<title></title>
+</head>
+<body>
+<div id="header">
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div class="hlist"><table>
+<tr>
+<td class="hlist1">
+;
+</td>
+<td class="hlist2">
+asciidoc.el --- asciidoc text file development support
+</td>
+</tr>
+</table></div>
+<p>;; Copyright &#169; 2007 Terrence Brannon &lt;bauhaus@metaperl.com&gt;</p>
+<p>;; Author: Terrence Brannon &lt;bauhaus@metaperl.com&gt;
+;; Created: 21 Sept 2007
+;; Version: 0.1
+;; Keywords: text-formatting</p>
+<p>;; This file is not (yet) part of GNU Emacs.
+;; However, it is distributed under the same license.</p>
+<p>;; GNU Emacs is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 2, or (at your option)
+;; any later version.</p>
+<p>;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.</p>
+<p>;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.</p>
+<div class="hlist"><table>
+<tr>
+<td class="hlist1">
+;
+</td>
+<td class="hlist2">
+Description:
+</td>
+</tr>
+</table></div>
+<p>;; Suggested (but entirely optional) add-ons:
+;; doc-mode: font-locking for asciidoc buffers
+;; http://xpt.sourceforge.net/tools/doc-mode/
+;; - connect asciidoc.el to doc-mode as follows:
+;;   (autoload <em>doc-mode "doc-mode" nil t)
+;;   (add-to-list 'auto-mode-alist </em>("\\.adoc$" . doc-mode))
+;;   (add-hook <em>doc-mode-hook
+;;        </em>(lambda ()
+;;           (turn-on-auto-fill)
+;;           (require 'asciidoc)))</p>
+<p>;; Author extends thanks to:
+;; Steve Youngs (JackaLX on irc://irc.freenode.net/xemacs)
+;; bpalmer, twb</p>
+<p>;; Version control:
+;; This software is under Mercurial version control and maybe retrieved via:
+;; hg clone http://hg.metaperl.com/asciidoc-el</p>
+<p>;; Code:</p>
+<p>(setq debug-on-error t)
+(require 'easymenu)
+(require 'cl)
+(require 'apropos)</p>
+<p>(defvar <strong>asciidoc-indent-level</strong> 2 "Number of spaces to indent per level")</p>
+<p>(defvar <strong>delimiter-length</strong> 70
+  "How many characters to use when building a delimited block string. 4 min")</p>
+<p>(defun asciidoc-header (title author revision)
+  "Insert asciidoc header consisting of TITLE and optional AUTHOR and REVISION"
+  (interactive "sHeader title: \nsHeader author (return if none): \nsHeader revision (return if none):")
+  (insert
+   (concat title    "\n"
+           (make-string (length title) ?=) "\n"
+           author   "\n"
+           revision "\n"
+           "\n"
+           )))</p>
+<p>(defun asciidoc-get-started ()
+  (interactive)
+  (let date (format-time-string "%D" (current-time))
+    (asciidoc-header "Document Title"
+                     "Terrence Brannon &lt;bauhaus@metaperl.com&gt;"
+                     date)))</p>
+<p>(defun asciidoc-emphasized (text)
+  "Insert text with asciidoc emphasis formatting"
+  (interactive "sText to be emphasized: ")
+  (insert
+   (concat "<em>" text "</em>")))</p>
+<p>(defun asciidoc-strong (text)
+  "Insert text with asciidoc strong formatting"
+  (interactive "sText to be strong-formatted: ")
+  (insert
+   (concat "<strong>" text "</strong>")))</p>
+<p>(defun asciidoc-monospace (text)
+  "Insert text with asciidoc monospace formatting"
+  (interactive "sText to be monospace formatted: ")
+  (insert
+   (concat "<tt>" text "</tt>")))</p>
+<p>(defun asciidoc-quoted (text)
+  "Insert text with asciidoc quoted-text formatting"
+  (interactive "sText to be enclosed in quotation marks: ")
+  (insert
+   (concat "&#8220;" text "&#8221;")))</p>
+<p>(defun asciidoc-unquoted (text)
+  "Insert text with asciidoc unquoted text formatting"
+  (interactive "sText to be non-quoted: ")
+  (insert
+   (concat "" text "")))</p>
+<p>(defun asciidoc-passthru-triple-plus (text)
+  "Insert text with asciidoc triple plus passthrough formatting"
+  (interactive "sText to be formatted for no change: ")
+  (insert
+   (concat "" text "")))</p>
+<p>(defun asciidoc-passthru-double-dollar (text)
+  "Insert text with asciidoc double-dollar formatting"
+  (interactive "sText to be formatted for no change except escaping special characters: ")
+  (insert
+   (concat "<span>" text "</span>")))</p>
+<p>(defun asciidoc-passthru-double-dollar (text)
+  "Insert text with asciidoc double-dollar formatting"
+  (interactive "sText to be formatted for no change except escaping special characters: ")
+  (insert
+   (concat "<span>" text "</span>")))</p>
+<p>(defun asciidoc-superscript (text)
+  "Insert text with asciidoc superscript formatting"
+  (interactive "sText to be formatted for superscripting: ")
+  (insert
+   (concat "<sup>" text "</sup>")))</p>
+<p>(defun asciidoc-subscript (text)
+  "Insert text with asciidoc subscript formatting"
+  (interactive "sText to be formatted for subscripting: ")
+  (insert
+   (concat "<sub>" text "</sub>")))</p>
+<p>(defun asciidoc-line-break ()
+  "Insert asciidoc forced line break"
+  (interactive)
+  (insert
+   (concat " +\n")))</p>
+<p>(defun asciidoc-horizontal-rule ()
+  "Insert asciidoc &lt;hr /&gt; tag for HTML only"
+  (interactive)
+  (insert
+   (concat "<em>'</em>\n")))</p>
+<p>(defun asciidoc-copyright ()
+  "Insert asciidoc copyright replacement"
+  (interactive)
+  (insert "&#169; "))</p>
+<p>(defun asciidoc-trademark ()
+  "Insert asciidoc copyright replacement"
+  (interactive)
+  (insert "&#8482; "))</p>
+<p>(defun asciidoc-registered-trademark ()
+  "Insert asciidoc registered copyright replacement"
+  (interactive)
+  (insert "&#174; "))</p>
+<p>(defun asciidoc-section-title (section-level title)
+  "Insert asciidoc one-line title syntax"
+  (interactive "NNumber of equals signs (2-4):  \nsSection title:  ")
+  ; " " equals-signs
+  (let equals-signs     (make-string (1+ section-level) ?=)
+    (insert
+     (concat
+      "\n"
+      equals-signs " " title
+      "\n\n"))))</p>
+<p>(defun asciidoc-block-title (text)
+  "Insert text with asciidoc block title formatting"
+  (interactive "sText to be formatted as block title: ")
+  (insert
+   (concat "." text "\n")))</p>
+<p>(defun asciidoc-block-id-element (text)
+  "Insert text with asciidoc BlockId Element formatting"
+  (interactive "sText to be formatted as block-id: ")
+  (insert
+   (concat "<a id=" text "></a>" "\n")))</p>
+<p>(defun asciidoc-block-reference (block-id descriptive-text)
+  "Insert asciidoc reference to a block consisting of BLOCK-ID and DESCRIPTIVE-TEXT"
+  (interactive "sBlockId: \nsDescriptive text: ")
+  (insert
+   (concat "<a href="# block-id "> descriptive-text </a>"
+)))</p>
+<p>(defun asciidoc-verse-paragraph (text)
+  "Insert verse paragraph formatting"
+  (interactive)
+  (insert (concat "[verse]" "\n")))</p>
+<p>(defun asciidoc-literal-paragraph (text)
+  "Insert literal paragraph formatting"
+  (interactive)
+  (insert (concat "  " "\n")))</p>
+<p>(defun asciidoc-admonition-paragraph (text)
+  "Insert admonition paragraph formatting"
+  (interactive)
+  (insert (concat "[NOTE]" "\n")))</p>
+<p>(defun asciidoc-delimited-block (delimiter text)
+  ""
+  (let str (make-string <strong>delimiter-length</strong> delimiter)
+    (insert (concat str "\n" text "\n" str "\n\n"))))</p>
+<p>(defun asciidoc-comment-block (text)
+  "create an asciidoc CommentBlock"
+  (interactive "sText for comment block? ")
+  (asciidoc-delimited-block ?/ text))</p>
+<p>(defun asciidoc-passthru-block (text)
+  "create an asciidoc PassthroughBlock"
+  (interactive "sText for passthru block? ")
+  (asciidoc-delimited-block ?+ text))</p>
+<p>(defun asciidoc-listing-block (text)
+  "create an asciidoc ListingBlock"
+  (interactive "sText for listing block? ")
+  (asciidoc-delimited-block ?- text))</p>
+<p>(defun asciidoc-literal-block (text)
+  "create an asciidoc LiteralBlock"
+  (interactive "sText for literal block? ")
+  (asciidoc-delimited-block ?. text))</p>
+<p>(defun asciidoc-sidebar-block (text)
+  "create an asciidoc SidebarBlock"
+  (interactive "sText for sidebar block? ")
+  (asciidoc-delimited-block ?* text))</p>
+<p>(defun asciidoc-example-block (text)
+  "create an asciidoc ExampleBlock, using TEXT and optionally modifying the default EXAMPLE-LABEL and EXAMPLE-DESCRIPTION"
+  (interactive "sText for example block? ")
+  (let example-label (read-string "Example label? (it needs a space at the end) " "Example: "
+        (example-description (read-string "Example description? " "An example")))
+    (if (not (string= "" example-label))
+        (insert "[caption=" "\"" example-label "\"" "]" "\n"))
+    (if (not (string= "" example-description))
+        (insert "." example-description "\n"))
+    (asciidoc-delimited-block ?= text)))</p>
+<p>(defun asciidoc-quotation-block (text author source)
+  "create an asciidoc QuoteBlock"
+  (interactive "sText of quotation? \nsAuthor of quotation? \nsWhere did this quotation come from? ")
+  (insert
+   (concat "["
+           "attribution=" "\"" author "\""
+           ","
+           "citetitle="   "\"" source "\""
+           "]" "\n"))
+  (asciidoc-delimited-block ?_ text))</p>
+<p>(defun asciidoc-compile ()
+  (interactive)
+  (setq compile-command
+        (concat
+         "asciidoc -a numbered -a toc -a toclevels=4" " "
+         (file-name-nondirectory (buffer-file-name))
+         ))
+  (call-interactively 'compile))</p>
+<p>(defvar <strong>asciidoc-bullet</strong> '("-" "*")
+  "strings representing each of the two bullet levels offered by Asciidoc")</p>
+<p>(defun asciidoc-bullet-item (bullet-level text)
+  "At BULLET_LEVEL, insert TEXT"
+  (interactive "NBullet level (1 or 2):  \nsText for bullet:  ")
+  (let* level  (if (= bullet-level 2) 1 0
+         (bullet (nth level <strong>asciidoc-bullet</strong>))
+         (tab-space (make-string (* level 4) ?\s)))
+    (insert
+     (concat
+      tab-space bullet " " text "\n"))))</p>
+<p>(defun asciidoc-numbered-list-item (item-level text)
+  "At ITEM-LEVEL, insert TEXT"
+  (interactive "NItem level (1 or 2):  \nsText for bullet:  ")
+  (let* level  (if (= item-level 2) 2 1
+         (bullet (make-string level ?.))
+         (tab-space (make-string (* (- level 1) 4) ?\s)))
+    (insert
+     (concat
+      tab-space bullet " " text "\n"))))</p>
+<p>(defun asciidoc-labelled-list-item (text)
+  "Insert TEXT"
+  (interactive "sLabel for list item: ")
+  (insert
+   (concat
+    text "::" "\n    ")))</p>
+<p>(defun asciidoc-bibliography-item (ref-label ref-text)
+  "Insert bibliography item consisting of REF-LABEL and REF-TEXT"
+  (interactive "sLabel for bib item: \nsText of bibitem: ")
+  (insert
+   (concat
+    "+" " "  "[<a id=" ref-label "></a>]" " " ref-text "\n")))</p>
+<p>(defun asciidoc-href (url link-text)
+  "Insert hyperlink consisting of URL and LINK-TEXT"
+  (interactive "sURL: \nsText describing URL: ")
+  (insert
+   (concat
+    url "[" link-text "]" "\n"
+    )))</p>
+<p>(defun asciidoc-relative-href (url link-text)
+  "Insert hyperlink consisting of URL and LINK-TEXT"
+  (interactive "sRelative path to file (anchors allowed): \nsText describing link: ")
+  (insert
+   (concat
+    "link:"
+    url "[" link-text "]" "\n"
+    )))</p>
+<p>(defun asciidoc-image-href (url link-text)
+  "Insert hyperlink consisting of URL and LINK-TEXT"
+  (interactive "sURL to image file: \nsText describing image (only displayed when image unavailable): ")
+  (insert
+   (concat
+    "image:"
+    url "[" "\"" link-text "\"" "]" "\n"
+    )))</p>
+<p>(setq asciidoc-global-menuspec
+      (list "Doc"
+            (list
+             "Links and refs"
+              (vector "Href" 'asciidoc-href)
+              (vector "Image" 'asciidoc-image-href)
+              (vector "Relative url" 'asciidoc-relative-href)
+              (vector "Internal document references" 'asciidoc-block-reference)
+              )
+            (list
+             "Reference items"
+              (vector "Bibliography listing" 'asciidoc-bibliography-item)
+              (vector "BlockId element" 'asciidoc-block-id-element))
+            (list
+             "Bullets and lists"
+              (vector "Bulleted list" 'asciidoc-bullet-item)
+              (vector "Numbered list" 'asciidoc-numbered-list-item)
+              (vector "Labelled list" 'asciidoc-labelled-list-item)
+              )
+            (list
+             "Text formatting"
+              (vector "Emphasis" 'asciidoc-emphasized)
+              (vector "Strong (bold)" 'asciidoc-strong)
+              (vector "Monospaced" 'asciidoc-monospace)
+              (vector "Quotation marks around text" 'asciidoc-quoted)
+              (vector "Superscript" 'asciidoc-superscript)
+              (vector "Subscript" 'asciidoc-subscript)
+              )
+            (list
+             "Special symbols"
+              (vector "Copyright" 'asciidoc-copyright)
+              (vector "Trademark" 'asciidoc-trademark)
+              (vector "Registered trademark" 'asciidoc-registered-trademark)
+              )
+            (list
+             "Blocks"
+              (vector "Example block" 'asciidoc-example-block)
+              (vector "Listing block" 'asciidoc-listing-block)
+              (vector "Quotation block" 'asciidoc-quotation-block)
+              (vector "Literal block" 'asciidoc-literal-block)
+              (vector "Sidebar block" 'asciidoc-sidebar-block)</p>
+<div class="literalblock">
+<div class="content">
+<pre><tt>              (vector "Comment block" 'asciidoc-comment-block)
+              (vector "Pass-through block" 'asciidoc-passthru-triple-plus)
+              )
+            (list
+             "Run Asciidoc"
+              (vector "Compile"   'asciidoc-compile)
+              (vector "Recompile" 'recompile)
+              )
+            (vector "Start document" 'asciidoc-get-started)
+))</tt></pre>
+</div></div>
+<p>(easy-menu-define
+  asciidoc-global-menu global-map "" asciidoc-global-menuspec)</p>
+<p>(provide 'asciidoc)</p>
+<div class="hlist"><table>
+<tr>
+<td class="hlist1">
+;
+</td>
+<td class="hlist2">
+asciidoc.el ends here
+</td>
+</tr>
+</table></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 27-May-2008 01:01:48 CEST
+</div>
+</div>
+</body>
+</html>

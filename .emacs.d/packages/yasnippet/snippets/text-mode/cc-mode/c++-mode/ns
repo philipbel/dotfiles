@@ -1,0 +1,4 @@
+#name : namespace ...
+# --
+namespace $1 {
+} // $1

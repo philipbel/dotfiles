@@ -1,0 +1,9 @@
+cc-mode is copied from emacs-unicode-2 CVS [February 01 2008].
+
+A patch has been posted on the emacs-devel ML containing an enhancement
+patch for Objective-C
+<http://lists.gnu.org/archive/html/emacs-devel/2007-10/msg00698.html>
+
+Parts of this are applied here.
+
+IF YOU UPDATE CC-MODE, *DO NOT FORGET TO RE-APPLY* THE PATCHES.
