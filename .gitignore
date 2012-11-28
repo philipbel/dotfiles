@@ -10,4 +10,7 @@
 .mutt/cache
 .mutt/mailboxes
 .emacs.d/ac-comphist.dat
-.emacs.d/semantic.db/*.cache
+.emacs.d/semanticdb/
+*.swp
+.vim/bundle/
+.vim/.netrwhist
