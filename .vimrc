@@ -21,6 +21,11 @@ Bundle 'FuzzyFinder'
 " Bundle 'tristen/vim-sparkup.git' 
 Bundle 'scrooloose/nerdtree'
 Bundle 'wincent/Command-T'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/vcscommand.vim'
+Bundle 'vim-scripts/utl.vim'
+Bundle 'vim-scripts/OmniCppComplete'
 " Syntax-sensitive comments
 " 
 Bundle 'tomtom/tcomment_vim'
