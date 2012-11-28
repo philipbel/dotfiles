@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while (( "$#" )); do
+    ARG=""
+    if [ -x "$1" ]; then
+        ARG="-x"
+    else
+        ARG="+x"
+    fi
+    chmod $ARG "$1"
+    shift
+done
+

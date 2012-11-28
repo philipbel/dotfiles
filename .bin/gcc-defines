@@ -1,0 +1,4 @@
+#!/bin/sh
+echo foo | gcc -dM -E $@ - | sort
+
+
