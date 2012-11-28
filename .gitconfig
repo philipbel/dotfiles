@@ -1,0 +1,30 @@
+[color]
+    ui = auto
+[user]
+    name = Philip Belemezov
+	email = philip@belemezov.net
+[core]
+    editor = emacs
+	excludesfile = ~/.gitignore
+	preloadindex = true
+	gitproxy = ~/.bin/git-proxy.sh
+
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	df = diff
+	br = branch
+	info = remote -v
+	who = shortlog -s --
+	changes = diff --name-status -r
+	diffstat = diff --stat -r
+	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
+
+[gui]
+	diffcontext = 3
+	commitmsgwidth = 79
+	spellingdictionary = en_US
+
+[credential]
+	helper = osxkeychain

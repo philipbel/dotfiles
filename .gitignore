@@ -1,0 +1,13 @@
+.emacs.d/auto-save-list
+.emacs.d/session.*
+.gnupg/*.gpg
+*.pyc
+*.o
+*~
+*.elc
+.zsh/cache
+.git-shell-scripts.git
+.mutt/cache
+.mutt/mailboxes
+.emacs.d/ac-comphist.dat
+.emacs.d/semantic.db/*.cache
