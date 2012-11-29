@@ -3,6 +3,12 @@
 self=`basename $0`
 top_dir=$(cd `dirname $0`; pwd)
 
+function die() {
+    echo "$self: Error: $@"
+    exit 1
+}
+
+
 if `git --version >/dev/null`; then
     pushd "$top_dir" >/dev/null
     if [ -d .git ]; then
@@ -26,3 +32,32 @@ done
 
 echo "$self: Initializing Vundle"
 vim +BundleInstall +qall
+
+################################################################################
+# Command-T
+# Requires Vim with Ruby support, Ruby, rake
+################################################################################
+
+COMMANDT_DIR="$top_dir/.vim/bundle/Command-T/ruby/command-t"
+#if [ -z "`vim --version | grep '+ruby'`" ]; then
+#    echo "$self: Vim has no Ruby support, skipping"
+#    return 1
+#fi
+#if [ ! -d "$COMMANDT_DIR" ]; then
+#    echo "$self: Command-T not found in $COMMANDT_DIR";
+#    return 1
+#fi
+
+test -n "`which ruby`" || die "ruby not found"
+test -n "`which make`" || die "make not found"
+
+echo "$self: Setting up Command-T"
+
+pushd "$COMMANDT_DIR" >/dev/null \
+    || die "Cannot enter Command-T dir $COMMANDT_DIR"
+ruby extconf.rb || die "Failed to configure Command-T"
+make || die "Make failed"
+popd >/dev/null
+
+echo "$self: Command-T successfully set up"
+
