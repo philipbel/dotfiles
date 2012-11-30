@@ -34,7 +34,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'mbbill/code_complete'
 Bundle 'sukima/xmledit'
-" Non-GitHub repos ...
+Bundle 'msanders/snipmate.vim'
 " Themes
 Bundle 'vim-scripts/Zenburn'
 Bundle 'tomasr/molokai'
@@ -80,6 +80,7 @@ set ignorecase
 set smartcase " Override ignorecase if search contains capital letters
 set incsearch
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Omnicomplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -89,6 +90,7 @@ au BufNewFile,BufRead,BufEnter *.cpp,*.cc,*.cxx,*.hpp,*.hh,*.hxx
 
 let g:neocomplcache_enable_at_startup = 1
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,6 +99,7 @@ let g:neocomplcache_enable_at_startup = 1
 " Look for "tags" in the current dir and continue looking up the tree until /
 " Or going up home: set tags+=tags;$HOME
 set tags+=./tags;/
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LaTeX
@@ -108,6 +111,7 @@ let g:Tex_Folding = 0
 let g:Tex_AutoFolding = 0
 let g:Tex_DefaultTargetFormat = 'pdf'
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -115,6 +119,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 "autocmd BufRead,BufNewFile *.py set ai
 autocmd BufRead *.py set smartindent
             \ cinwords=if,elif,else,for,while,try,except,finally,def,class
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MiniBufExplorer
@@ -124,6 +129,7 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Whitespace
 " See <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>
@@ -131,7 +137,6 @@ let g:miniBufExplModSelTarget = 1
 highlight ExtraWhitespace ctermbg=red guibg=red
 " Show trailing whitespace and spaces before a tab:
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,6 +157,13 @@ set clipboard=unnamed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F10> :NERDTreeToggle<CR>
 imap <F10> <Esc>:NERDTreeToggle<CR> # NERD Tree in insert mode
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" snipMate
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:snipsAuthor = 'Philip Belemezov <philip@belemezov.net>'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local file
