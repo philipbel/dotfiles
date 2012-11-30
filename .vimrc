@@ -28,14 +28,17 @@ Bundle 'vim-scripts/vcscommand.vim'
 Bundle 'vim-scripts/utl.vim'
 Bundle 'vim-scripts/OmniCppComplete'
 Bundle 'vim-scripts/vimspell'
-Bundle 'vim-scripts/Zenburn'
 Bundle 'vim-scripts/grep.vim'
-"Bundle 'Shougo/neocomplcache'
+" Bundle 'Shougo/neocomplcache'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'mbbill/code_complete'
 Bundle 'sukima/xmledit'
 " Non-GitHub repos ...
+" Themes
+Bundle 'vim-scripts/Zenburn'
+Bundle 'tomasr/molokai'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options
@@ -47,7 +50,7 @@ set nopaste
 set number
 
 syntax on
-colorscheme zenburn
+colorscheme molokai
 
 set hlsearch		" highlighting
 set expandtab		" Don't expand tabs
