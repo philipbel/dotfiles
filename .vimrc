@@ -46,19 +46,13 @@ Bundle 'tomasr/molokai'
 set autoindent
 set ruler
 set nobackup
-set nopaste
+set paste
 set number
 
 syntax on
 colorscheme molokai
 
 set hlsearch		" highlighting
-set expandtab		" Don't expand tabs
-set smarttab		" Use smart tabs
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set autoindent
 set textwidth=80
 set colorcolumn=+1 " Available in Vim 7.3+
 set modeline
@@ -68,6 +62,15 @@ filetype plugin indent on
 " Always set the current working dir
 command! CD cd %:p:h
 command! LCD lcd %:p:h
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set expandtab
+set shiftwidth=4
+set tabstop=4
+"set smarttab
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
