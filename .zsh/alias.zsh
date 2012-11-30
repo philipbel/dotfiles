@@ -78,7 +78,7 @@ alias igrep='grep -i'
 
 function psg()
 {
-    ps -ax | grep -i $@
+    ps ax | grep -i $@
 }
 
 function fileManager
@@ -163,3 +163,5 @@ function mnt() {
     mount \
     | egrep -v '^(cgroup|tmpfs|systemd-1|/sys|hugetlbfs|mqueue|sunrpc|binfmt_misc|selinuxfs|devpts|udev|/proc)'
 }
+
+alias rda="command rdesktop -g 1280x960 -u Administrator "
