@@ -17,9 +17,9 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zmodload -i zsh/parameter
 _comp_setup+=$'\ntypeset -a userdirs'
 
-#zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' completer _expand _complete _correct _approximate
 #zstyle ':completion:*' completer _expand _complete _correct
-zstyle ':completion:*' completer _expand _complete
+#zstyle ':completion:*' completer _expand _complete
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 setopt autolist
