@@ -7,7 +7,6 @@
     editor = emacs
 	excludesfile = ~/.gitignore
 	preloadindex = true
-	gitproxy = ~/.bin/git-proxy.sh
 
 [alias]
 	ci = commit
