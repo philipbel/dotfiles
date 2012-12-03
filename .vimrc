@@ -44,13 +44,17 @@ Bundle 'tomasr/molokai'
 " Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
+set cindent
+
 set ruler
 set nobackup
-set paste
+set nopaste
 set number
 set title
 
-syntax on
+set enc=utf8
+set fenc=utf8
+
 colorscheme molokai
 
 " Timeout after ESC
@@ -60,8 +64,11 @@ set hlsearch		" highlighting
 set textwidth=80
 set colorcolumn=+1 " Available in Vim 7.3+
 set modeline
+"set formatoptions
+
 " This enables automatic filetype detection and automatic indentation
 filetype plugin indent on
+syntax on
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
