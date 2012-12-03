@@ -107,6 +107,21 @@ let g:neocomplcache_enable_at_startup = 1
 " Or going up home: set tags+=tags;$HOME
 set tags+=./tags;/
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" C
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set cino+=:0 " case labels are not indented
+set cino+=g0 " Place public/protected/etc. at the same level
+set cino+=t0 " Don't indent func. return type
+set cino+=(0 " Align cont. with the brace before
+set cino+=W1s " The first param of a func. on a new line is indented by
+              " shiftwidth.  The next is aligned with the prev. (see (0 above)
+
+syn keyword type uint ubyte ulong uint64_t uint32_t uint16_t uint8_t
+            \ boolean_t int64_t int32_t int16_t int8_t u_int64_t u_int32_t
+            \ u_int16_t u_int8_t
+            \ shared_ptr auto_ptr scoped_ptr unique_ptr
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LaTeX
