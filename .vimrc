@@ -63,10 +63,6 @@ set modeline
 " This enables automatic filetype detection and automatic indentation
 filetype plugin indent on
 
-" Always set the current working dir
-command! CD cd %:p:h
-command! LCD lcd %:p:h
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tabs
