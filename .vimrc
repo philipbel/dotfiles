@@ -183,6 +183,9 @@ let g:snipsAuthor = 'Philip Belemezov <philip@belemezov.net>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Local file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let local_vimrc = $HOME.'/.vimrc.local'
+if filereadable('local_vimrc')
+    source local_vimrc
 let s:local_vimrc = '~/.vimrc.local'
 if filereadable(s:local_vimrc)
     source s:local_vimrc
