@@ -48,10 +48,14 @@ set ruler
 set nobackup
 set paste
 set number
+set title
 
 syntax on
 colorscheme molokai
 
+" Timeout after ESC
+set timeout
+set timeoutlen=100
 set hlsearch		" highlighting
 set textwidth=80
 set colorcolumn=+1 " Available in Vim 7.3+
