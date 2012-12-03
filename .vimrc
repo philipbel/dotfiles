@@ -195,6 +195,10 @@ command WQ wq
 " (from <http://netbuz.org/vimrc.html>)
 map Q gq
 
+" First one is for normal mode, second one is for insert mode
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " snipMate
