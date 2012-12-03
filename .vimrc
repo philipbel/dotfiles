@@ -160,7 +160,22 @@ set clipboard=unnamed
 " Keys
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F10> :NERDTreeToggle<CR>
-imap <F10> <Esc>:NERDTreeToggle<CR> # NERD Tree in insert mode
+imap <F10> <Esc>:NERDTreeToggle<CR> " NERD Tree in insert mode
+" Make F3 toggle hlsearch
+"nnoremap <F3> :set hlsearch!<CR>
+" Remove highlighting and redraw the screen
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+" Make C-p and C-n navigate the tabs
+nnoremap <c-p> :tabprevious<CR>
+nnoremap <c-n> :tabnext<CR>
+" Too fast (from <http://netbuz.org/vimrc.html>)
+command W w
+command Q q
+command Wq wq
+command WQ wq
+" Don't use Ex mode, use Q for formatting
+" (from <http://netbuz.org/vimrc.html>)
+map Q gq
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
