@@ -2,31 +2,38 @@
     ui = auto
 [user]
     name = Philip Belemezov
-	email = philip@belemezov.net
+    email = philip@belemezov.net
 [core]
     editor = emacs
-	excludesfile = ~/.gitignore
-	preloadindex = true
+    excludesfile = ~/.gitignore
+    preloadindex = true
 
 [alias]
-	ci = commit
-	st = status
-	co = checkout
-	df = diff
-	br = branch
-	info = remote -v
-	who = shortlog -s --
-	changes = diff --name-status -r
-	diffstat = diff --stat -r
-	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
+    ci = commit
+    st = status
+    co = checkout
+    df = diff
+    br = branch
+    lg = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+    info = remote -v
+    who = shortlog -s --
+    changes = diff --name-status -r
+    diffstat = diff --stat -r
+    gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
 
 [gui]
-	diffcontext = 3
-	commitmsgwidth = 79
-	spellingdictionary = en_US
+    diffcontext = 3
+    commitmsgwidth = 79
+    spellingdictionary = en_US
 
 [credential]
     helper = osxkeychain
 
 [include]
     path = .gitconfig.local
+
+[tig]
+    show-rev-graph = true
+
+[tig "color"]
+    cursor = yellow red bold
