@@ -9,6 +9,10 @@ function die() {
 }
 
 
+################################################################################
+# Git
+################################################################################
+
 if `git --version >/dev/null`; then
     pushd "$top_dir" >/dev/null
     if [ -d .git ]; then
@@ -23,15 +27,27 @@ else
     echo "$self: Git not found.  Vim setup will be incomplete" 
 fi
 
-MODULES=`ls -A "$top_dir" | grep -v ".git$" | grep -v .gitignore | grep -v make-links.sh | grep -v README.md`
+
+################################################################################
+# Symlinks
+################################################################################
+
+MODULES=`ls -A "$top_dir" | grep -v "^.git$" | grep -v .gitignore \
+    | grep -v make-links.sh | grep -v README.md | grep -v ".swp$"`
 
 for i in $MODULES; do
 	echo "$self: Symlinking $i"
 	ln -sf "$top_dir/$i" ~/
 done
 
+
+################################################################################
+# Vundle
+################################################################################
+
 echo "$self: Initializing Vundle"
 vim +BundleInstall +qall
+
 
 ################################################################################
 # Command-T
