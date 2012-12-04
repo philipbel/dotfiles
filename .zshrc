@@ -15,19 +15,27 @@ setopt nullglob
 unsetopt nullglob
 
 umask 022
+
 # Enable core dumps of max 50K
 #ulimit -c unlimited
 # Disable core dumps
 ulimit -c 0
 
+
+###############################################################################
 ## Environment
+###############################################################################
+
 # PATH
-source ~/.zsh/ccache.zsh
 
 PATH=~/.bin:~/.local/bin:/usr/local/bin:$PATH
+source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
 PATH=/opt/local/bin:/opt/local/sbin:/sw/bin:/sw/sbin:$PATH
 PATH=/sbin:/usr/sbin:/opt/bin:$PATH
+
+# vimpager
+PATH=$PATH:~/.vimpager.git
 
 # Git scripts path
 PATH=$PATH:~/.git-shell-scripts.git
