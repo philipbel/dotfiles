@@ -53,7 +53,9 @@ set number
 set title
 
 set enc=utf8
-set fenc=utf8
+if &modifiable
+    set fenc=utf8
+endif
 
 colorscheme molokai
 
