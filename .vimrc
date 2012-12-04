@@ -58,8 +58,8 @@ set fenc=utf8
 colorscheme molokai
 
 " Timeout after ESC
-set timeout
-set timeoutlen=100
+"set timeout
+"set timeoutlen=100
 set hlsearch		" highlighting
 set textwidth=80
 set colorcolumn=+1 " Available in Vim 7.3+
@@ -198,6 +198,16 @@ map Q gq
 " First one is for normal mode, second one is for insert mode
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
+
+" Command mode (from <http://stackoverflow.com/a/6923282/1837715>)
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
