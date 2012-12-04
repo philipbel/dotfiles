@@ -1,3 +1,6 @@
 [submodule ".vim/vundle.git"]
 	path = .vim/vundle.git
 	url = http://github.com/gmarik/vundle.git
+[submodule ".vimpager.git"]
+	path = .vimpager.git
+	url = https://github.com/rkitover/vimpager.git
