@@ -54,8 +54,10 @@ export LD_LIBRARY_PATH=~/.lib:$LD_LIBRARY_PATH:/usr/local/lib
 export EDITOR=vim
 export ALTERNATE_EDITOR=nano
 
-if which most &>/dev/null; then
-	export PAGER=`which most`
+if which vimpager &>/dev/null; then
+    export PAGER=vimpager
+elif which most &>/dev/null; then
+	export PAGER=most
 fi
 
 # Email variables.  Used at least by bazaar
