@@ -29,6 +29,8 @@ Bundle 'vim-scripts/utl.vim'
 Bundle 'vim-scripts/OmniCppComplete'
 Bundle 'vim-scripts/vimspell'
 Bundle 'vim-scripts/grep.vim'
+Bundle 'vim-scripts/python.vim'
+Bundle 'indentpython.vim--nianyang'
 " Bundle 'Shougo/neocomplcache'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'scrooloose/nerdcommenter'
@@ -85,7 +87,8 @@ endif
 set expandtab
 set shiftwidth=4
 set tabstop=4
-"set smarttab
+set softtabstop=4
+set smarttab
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -147,8 +150,8 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autocmd BufRead,BufNewFile *.py syntax on
 "autocmd BufRead,BufNewFile *.py set ai
-autocmd BufRead *.py set smartindent
-            \ cinwords=if,elif,else,for,while,try,except,finally,def,class
+"autocmd BufRead *.py set smartindent
+"            \ cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
