@@ -54,11 +54,11 @@ export LD_LIBRARY_PATH=~/.lib:$LD_LIBRARY_PATH:/usr/local/lib
 export EDITOR=vim
 export ALTERNATE_EDITOR=nano
 
-if which vimpager &>/dev/null; then
-    export PAGER=vimpager
-elif which most &>/dev/null; then
+#if which vimpager &>/dev/null; then
+#    export PAGER=vimpager
+#elif which most &>/dev/null; then
 	export PAGER=most
-fi
+#fi
 
 # Email variables.  Used at least by bazaar
 export EMAIL="Philip Belemezov <`whoami`@`hostname`>"
