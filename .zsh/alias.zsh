@@ -150,10 +150,15 @@ if which aptitude >/dev/null 2>&1; then
 elif which yum >/dev/null 2>&1; then
     alias pkgi='sudo yum install'
     alias pkgr='sudo yum remove'
-    alias pp='sudo yum remove'
     alias pkgu='sudo yum update'
     alias pkgupg='sudo yum upgrade'
     alias pkgs='yum search'
+elif which brew >/dev/null 2>&1; then
+    alias pkgi='brew install'
+    alias pkgr='brew uninstall'
+    alias pkgu='brew update'
+    alias pkgupg='brew upgrade'
+    alias pkgs='brew search'
 fi
 
 alias rsync='rsync -avz -e ssh'
