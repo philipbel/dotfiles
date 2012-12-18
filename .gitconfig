@@ -4,7 +4,7 @@
     name = Philip Belemezov
     email = philip@belemezov.net
 [core]
-    editor = emacs
+    editor = vim
     excludesfile = ~/.gitignore
     preloadindex = true
 
