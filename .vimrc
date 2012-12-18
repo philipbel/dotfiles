@@ -219,6 +219,15 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 
+" From <http://stackoverflow.com/a/1618401/1837715>
+fun! StripTrailingWhitespaces()
+    let l=line(".")
+    let c=col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OS X
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
