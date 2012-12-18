@@ -52,7 +52,9 @@ set autoindent
 set cindent
 
 set ruler
-set nobackup
+set backup
+set backupdir=~/.vim/tmp,/tmp
+set directory=~/.vim/tmp,/tmp
 set nopaste
 set number
 set title
