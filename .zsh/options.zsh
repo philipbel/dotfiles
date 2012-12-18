@@ -6,8 +6,13 @@ HISTSIZE=3000
 SAVEHIST=3000
 
 
+# Don't replace, always append to the history
+#setopt append_history
+# Same as above, but don't wait until the shell has exited to append to the file
+setopt inc_append_history
+# When using ! cmds, confirm first
+setopt hist_verify
 
-setopt appendhistory
 setopt histignorealldups
 setopt histignorespace
 setopt histreduceblanks
@@ -24,7 +29,6 @@ setopt promptsubst
 setopt extendedglob
 setopt always_to_end            # When complete from middle, move cursor
 unsetopt correct                # Spelling correction
-setopt hist_verify              # When using ! cmds, confirm first
 setopt interactive_comments     # Escape commands so I can use them later
 unsetopt print_exit_value         # Alert me if something's failed
 
