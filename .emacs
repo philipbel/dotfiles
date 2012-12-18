@@ -910,6 +910,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Color theme
 ;; http://www.emacswiki.org/cgi-bin/wiki?ColorTheme#ColorTheme1
+;; see <http://code.google.com/p/gnuemacscolorthemetest/>
 ;; (require 'color-theme)
 ;; (color-theme-initialize)
 ;; Nice themes are
