@@ -37,6 +37,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'mbbill/code_complete'
 Bundle 'sukima/xmledit'
 Bundle 'msanders/snipmate.vim'
+Bundle 'mileszs/ack.vim'
 " Themes
 Bundle 'vim-scripts/Zenburn'
 Bundle 'tomasr/molokai'
