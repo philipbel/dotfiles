@@ -153,7 +153,7 @@ set ofu=syntaxcomplete"Complete
 au BufNewFile,BufRead,BufEnter *.cpp,*.cc,*.cxx,*.hpp,*.hh,*.hxx
     \ set omnifunc=omni#cpp#complete#Main
 
-let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup=1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
