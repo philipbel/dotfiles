@@ -37,3 +37,9 @@
 
 [tig "color"]
     cursor = yellow red bold
+
+[difftool]
+	prompt = false
+
+[mergetool]
+	prompt = false
