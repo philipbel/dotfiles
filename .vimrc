@@ -57,6 +57,7 @@ set backupdir=~/.vim/tmp,/tmp
 set directory=~/.vim/tmp,/tmp
 set nopaste
 set number
+set numberwidth=5
 set title
 
 set enc=utf8
