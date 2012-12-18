@@ -2,7 +2,7 @@ if has("win32")
 elseif has("unix")
     let s:uname = system("uname")
     if s:uname == "Darwin"
-        set guifont=Menlo\ 11
+        set guifont=Monaco\ 11
     else
         set guifont=DejaVu\ Sans\ Mono\ 11
     endif
