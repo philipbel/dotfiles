@@ -65,6 +65,8 @@ set nopaste
 set number
 set numberwidth=5
 set title
+set showcmd
+set cursorline
 
 set enc=utf8
 if &modifiable
