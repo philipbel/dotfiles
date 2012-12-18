@@ -38,11 +38,17 @@ Bundle 'mbbill/code_complete'
 Bundle 'sukima/xmledit'
 Bundle 'msanders/snipmate.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'ervandew/supertab'
-" Themes
+Bundle 'Lokaltog/vim-powerline'
+
+
+" Color schemes
+" see <http://code.google.com/p/vimcolorschemetest/>.
 Bundle 'vim-scripts/Zenburn'
 Bundle 'tomasr/molokai'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'vim-scripts/twilight256.vim'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'vim-scripts/Wombat'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -65,7 +71,7 @@ if &modifiable
     set fenc=utf8
 endif
 
-colorscheme molokai
+"colorscheme molokai
 
 " Timeout after ESC
 "set timeout
