@@ -4,7 +4,7 @@ elseif has('mac')
     let g:Tex_ViewRule_pdf = 'Preview'
     set macmeta
 elseif has('unix')
-    set guifont=DejaVu\ Sans\ Mono:h11
+    set guifont=DejaVu\ Sans\ Mono\ 11
 endif
 
 set guicursor+=a:blinkon0 " a means all mods
