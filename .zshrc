@@ -14,6 +14,7 @@ setopt nullglob
 [[ -e "/etc/profile" ]] && source /etc/profile
 unsetopt nullglob
 
+
 umask 022
 
 # Enable core dumps of max 50K
@@ -31,8 +32,7 @@ ulimit -c 0
 PATH=~/.bin:~/.local/bin:/usr/local/bin:$PATH
 source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
-PATH=/opt/local/bin:/opt/local/sbin:/sw/bin:/sw/sbin:$PATH
-PATH=/sbin:/usr/sbin:/opt/bin:$PATH
+PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 
 # vimpager
 PATH=$PATH:~/.vimpager.git
