@@ -16,7 +16,9 @@ if [ -z "$SESSIONS" ]; then
     exit 1
 fi
 
+cmdline="term-tabs.sh"
 for s in $SESSIONS; do
-    echo "Opening session $s"
-    term-newtab.sh $SSHCMD tmux at -t $s
+    echo "Adding session $s"
+    cmdline="$cmdline --tab $SSHCMD tmux at -t $s"
 done
+exec $cmdline
