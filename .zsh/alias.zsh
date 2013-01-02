@@ -145,7 +145,6 @@ if which aptitude >/dev/null 2>&1; then
     alias pkgr='sudo aptitude remove'
     alias pkgu='sudo aptitude update'
     alias pkgupg='sudo aptitude upgrade'
-    alias pkguu='pkgu && pkgupg'
     alias pkgs='aptitude source'
 elif which yum >/dev/null 2>&1; then
     alias pkgi='sudo yum install'
@@ -160,6 +159,7 @@ elif which brew >/dev/null 2>&1; then
     alias pkgupg='brew upgrade'
     alias pkgs='brew search'
 fi
+alias pkguu='pkgu && pkgupg'
 
 alias rsync='rsync -avz -e ssh'
 
