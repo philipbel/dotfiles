@@ -190,13 +190,21 @@ syn keyword type uint ubyte ulong uint64_t uint32_t uint16_t uint8_t
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LaTeX
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:Tex_ViewRule_dvi = 'evince'
-let g:Tex_ViewRule_ps = 'evince'
-let g:Tex_ViewRule_pdf = 'evince'
+let g:Tex_Menus = 0
 let g:Tex_Folding = 0
 let g:Tex_AutoFolding = 0
 let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'dvi,ps,pdf'
+let g:tex_flavor = 'latex'
+let g:Tex_GotoError = 0
 
+au FileType tex set tabstop=2 shiftwidth=2
+au FileType tex nmap <buffer> <Leader>ll :up!<cr> :call Tex_RunLaTeX()<cr>
+au FileType tex vmap <buffer> <Leader>ll :up!<cr> :call Tex_PartCompile()<cr>
+au FileType tex nmap <buffer> <Leader>lv :up!<cr> :call Tex_RunLaTeX()<cr>
+            \ :call Tex_ViewLaTeX()<cr>
+au FileType tex nmap <buffer> <Leader>lp :up!<cr> :call Tex_PartCompile()<cr>
+            \ :call Tex_ViewLaTeX()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
@@ -256,6 +264,8 @@ command! WQ wq
 " Don't use Ex mode, use Q for formatting
 " (from <http://netbuz.org/vimrc.html>)
 map Q gq
+" From the Latex-Text-Formatter package
+map gqlp <ESC>:call FormatLatexPar(0)<CR>i
 
 " First one is for normal mode, second one is for insert mode
 nnoremap <F2> :set invpaste paste?<CR>
