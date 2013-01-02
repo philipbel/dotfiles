@@ -26,9 +26,6 @@
     commitmsgwidth = 79
     spellingdictionary = en_US
 
-[credential]
-    helper = osxkeychain
-
 [include]
     path = .gitconfig.local
 
