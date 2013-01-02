@@ -8,6 +8,8 @@ if [[ $ZSH_PROFILE_RC -gt 0 ]] ; then
 fi
 # }}}
 
+export TERM="xterm-256color"
+
 # set before sourcing /etc/profile so that if there're
 # no matches, no warning is reported
 setopt nullglob
