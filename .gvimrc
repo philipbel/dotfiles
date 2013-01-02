@@ -1,11 +1,10 @@
-if has("win32")
-elseif has("unix")
-    let s:uname = system("uname")
-    if s:uname == "Darwin"
-        set guifont=Monaco\ 11
-    else
-        set guifont=DejaVu\ Sans\ Mono\ 11
-    endif
+if has('win32')
+elseif has('mac')
+    set guifont=Monaco:h11
+    let g:Tex_ViewRule_pdf = 'Preview'
+    set macmeta
+elseif has('unix')
+    set guifont=DejaVu\ Sans\ Mono:h11
 endif
 
 set guicursor+=a:blinkon0 " a means all mods
