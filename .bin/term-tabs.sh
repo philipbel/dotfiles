@@ -12,8 +12,22 @@ if [ $# -lt 1 ]; then
     exit 1
 fi
 
+SCRIPTS=
+CURSCRIPT=
+while [ $# -gt 0 ]; do
+    if [ "$1" = "--tab" ]; then
+        SCRIPTS="$SCRIPTS:$CURSCRIPT"
+        CURSCRIPT=
+    else
+        CURSCRIPT="$CURSCRIPT $1"
+    fi
+    shift
+done
+SCRIPTS="$SCRIPTS:$CURSCRIPT"
 
-linuxTab() {
+
+
+linuxOpenTabs() {
     pushd $PWD >/dev/null
 
     local de=
@@ -42,25 +56,15 @@ linuxTab() {
 
     case $de in
         mate|gnome)
-            # See http://superuser.com/questions/94930/gnome-terminal-new-tab-dbus
-
-            if ! which xdotool >/dev/null; then
-                echo "$self: Please install xdotool"
-                exit 1
-            fi
-            if ! which wmctrl >/dev/null; then
-                echo "$self: Please install wmctrl"
-                exit 1
-            fi
-            local wid=`xdotool search --class "$terminal" | head -1`
-            # The following prints an X error, ignore
-            xdotool windowfocus $wid &>/dev/null
-            xdotool key ctrl+shift+t
-            wmctrl -i -a $wid
-            sleep 0.2 # Give the shell time to initialize
-
-            xdotool type "$*"
-            xdotool key Return
+            cmdline="$terminal "
+            IFS=':'
+            for i in $SCRIPTS; do
+                if [ -z "$i" ]; then
+                    continue
+                fi
+                cmdline="$cmdline --tab -e \"$i\""
+            done
+            $cmdline
             ;;
         *)
             echo "$self: Unknown desktop environment"
@@ -74,19 +78,20 @@ newtab() {
     PLATFORM=`uname -s`
     case "$PLATFORM" in
         Darwin)
-            osascript 2>/dev/null <<EOF
-                tell application "System Events"
-                   tell process "Terminal" to keystroke "t" using command down
-                end
-                tell application "Terminal"
-                    activate
-                    do script with command "cd $PWD; $*" in selected tab of the front window
-                end
-EOF
+            echo "XXX: Fix this for OS X"
+#            osascript 2>/dev/null <<EOF
+#                tell application "System Events"
+#                   tell process "Terminal" to keystroke "t" using command down
+#                end
+#                tell application "Terminal"
+#                    activate
+#                    do script with command "cd $PWD; $*" in selected tab of the front window
+#                end
+#EOF
             return $?
             ;;
         Linux)
-            linuxTab $*
+            linuxOpenTabs $*
             ;;
         *)
             echo "$self: Unsupported platform \`$PLATFORM'"
