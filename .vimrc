@@ -39,7 +39,8 @@ Bundle 'sukima/xmledit'
 Bundle 'msanders/snipmate.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'Lokaltog/vim-powerline'
-
+Bundle 'jcf/vim-latex'
+Bundle 'vim-scripts/Latex-Text-Formatter'
 
 " Color schemes
 " see <http://code.google.com/p/vimcolorschemetest/>.
