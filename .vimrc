@@ -51,6 +51,10 @@ Bundle 'vim-scripts/twilight256.vim'
 Bundle 'tpope/vim-vividchalk'
 Bundle 'vim-scripts/Wombat'
 
+" Don't load this for anything else but for Python files (otherwise, the
+" "Python" menu appears for every filetype
+set runtimepath-=~/.vim/bundle/python.vim
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Options
@@ -200,7 +204,7 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 "autocmd BufRead,BufNewFile *.py set ai
 "autocmd BufRead *.py set smartindent
 "            \ cinwords=if,elif,else,for,while,try,except,finally,def,class
-
+au BufRead,BufNewFile *.py source ~/.vim/bundle/python.vim/plugin/python_fn.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MiniBufExplorer
