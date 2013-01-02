@@ -97,6 +97,8 @@ function fileManager
 			command dolphin $@
 		elif [ "$DESKTOP_SESSION" = "gnome" ]; then
 			command nautilus $@
+		elif [ "$DESKTOP_SESSION" = "mate" ]; then
+			command caja $@
 		elif [ "$DESKTOP_SESSION" = "xfce" ]; then
 			command thunar $@
 		else
