@@ -41,6 +41,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'jcf/vim-latex'
 Bundle 'vim-scripts/Latex-Text-Formatter'
+Bundle 'bronson/vim-trailing-whitespace'
 
 " Color schemes
 " see <http://code.google.com/p/vimcolorschemetest/>.
@@ -213,24 +214,6 @@ au BufRead,BufNewFile *.py source ~/.vim/bundle/python.vim/plugin/python_fn.vim
 "let g:miniBufExplMapWindowNavArrows = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Whitespace
-" See <http://vim.wikia.com/wiki/Highlight_unwanted_spaces>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-highlight ExtraWhitespace ctermbg=red guibg=red
-" Show trailing whitespace and spaces before a tab:
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
-
-
-" From <http://stackoverflow.com/a/1618401/1837715>
-fun! StripTrailingWhitespaces()
-    let l=line(".")
-    let c=col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
