@@ -54,8 +54,8 @@ autoload -U zrecompile
 WORDCHARS=''                    # Emacs compatible M-b and M-f
 bindkey "\C-w" kill-region      # Emacs C-w command support
 
-autoload -U zsh-mime-setup
-zsh-mime-setup
+#autoload -U zsh-mime-setup
+#zsh-mime-setup
 
 # Keybindins
 bindkey -e
