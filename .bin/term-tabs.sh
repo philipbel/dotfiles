@@ -56,42 +56,58 @@ linuxOpenTabs() {
 
     case $de in
         mate|gnome)
-            cmdline="$terminal "
+            params=
             IFS=':'
             for i in $SCRIPTS; do
                 if [ -z "$i" ]; then
                     continue
                 fi
-                cmdline="$cmdline --tab -e \"$i\""
+                params="$params --tab -e \"$i\""
             done
-            $cmdline
+            $terminal $params
             ;;
         *)
             echo "$self: Unknown desktop environment"
             exit 1
     esac
     popd >/dev/null
- }
+}
 
+tabStringMac() {
+    read -rd '' str <<EOF
+
+    tell application "System Events"
+        tell process "Terminal" to keystroke "t" using command down
+    end
+    tell application "Terminal"
+        activate
+        do script with command "cd $PWD; $*" in selected tab of the front window
+    end
+
+EOF
+    echo "$str"
+    return 0
+}
 
 newtab() {
     PLATFORM=`uname -s`
     case "$PLATFORM" in
         Darwin)
-            echo "XXX: Fix this for OS X"
-#            osascript 2>/dev/null <<EOF
-#                tell application "System Events"
-#                   tell process "Terminal" to keystroke "t" using command down
-#                end
-#                tell application "Terminal"
-#                    activate
-#                    do script with command "cd $PWD; $*" in selected tab of the front window
-#                end
-#EOF
+            local params=
+            #local params="osascript 2>/dev/null"
+            IFS=':'
+            for i in $SCRIPTS; do
+                if [ -z "$i" ]; then
+                    continue
+                fi
+                params="$params $(tabStringMac $i)"
+            done
+            osascript -e "$params"
             return $?
             ;;
         Linux)
             linuxOpenTabs $*
+            return $?
             ;;
         *)
             echo "$self: Unsupported platform \`$PLATFORM'"
