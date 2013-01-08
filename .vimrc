@@ -42,6 +42,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'jcf/vim-latex'
 Bundle 'vim-scripts/Latex-Text-Formatter'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'tpope/vim-surround'
 
 " Color schemes
 " see <http://code.google.com/p/vimcolorschemetest/>.
