@@ -34,11 +34,9 @@ linuxOpenTabs() {
     local terminal=
 
     # see .zsh/alias.zsh
-    if [ -n "$KDE_SESSION_VERSION" ]; then
+    if [ "$DESKTOP_SESSION" = "kde-plasma" ]; then
         de=kde
         terminal=konsole
-        echo "$self: KDE not supported"
-        exit 1
     elif [ "$DESKTOP_SESSION" = "gnome" ]; then
         de=gnome
         terminal=gnome-terminal
@@ -64,7 +62,27 @@ linuxOpenTabs() {
                 fi
                 params="$params --tab -e \"$i\""
             done
-            $terminal $params
+            eval $cmdline
+            ;;
+        kde*)
+            local title="konsole-$RANDOM"
+            konsole --name $title 2>/dev/null&
+            sleep 1
+            local wid=`xdotool search --limit 1 --maxdepth 1 --classname $title`
+            local first=1
+            IFS=':'
+            for i in $SCRIPTS; do
+                if [ -z "$i" ]; then
+                    continue
+                fi
+                if ((first == 1)); then
+                    first=0
+                else
+                    xdotool key --delay 1000 --window $wid "ctrl+shift+t"
+                fi
+                xdotool type --window $wid $i
+                xdotool key --window $wid Return
+            done
             ;;
         *)
             echo "$self: Unknown desktop environment"
