@@ -21,4 +21,4 @@ for s in $SESSIONS; do
     echo "Adding session $s"
     cmdline="$cmdline --tab $SSHCMD tmux at -t $s"
 done
-exec $cmdline
+$cmdline
