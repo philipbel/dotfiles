@@ -54,13 +54,13 @@ linuxOpenTabs() {
 
     case $de in
         mate|gnome)
-            params=
+            cmdline="$terminal "
             IFS=':'
             for i in $SCRIPTS; do
                 if [ -z "$i" ]; then
                     continue
                 fi
-                params="$params --tab -e \"$i\""
+                cmdline="$cmdline --tab -e \"$i\""
             done
             eval $cmdline
             ;;
