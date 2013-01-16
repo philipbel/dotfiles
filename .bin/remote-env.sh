@@ -40,6 +40,6 @@ fi
 cmdline="term-tabs.sh"
 for s in $SESSIONS; do
     echo "Adding session $s"
-    cmdline="$cmdline --tab $SSHCMD tmux at -t $s"
+    cmdline="$cmdline --tab $SSHCMD tmux at -d -t $s"
 done
 $cmdline
