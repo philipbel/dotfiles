@@ -31,6 +31,9 @@
 
 [tig]
     show-rev-graph = true
+    show-line-numbers = yes
+    line-graphics = default
+    tab-size = 4
 
 [tig "color"]
     cursor = yellow red bold
