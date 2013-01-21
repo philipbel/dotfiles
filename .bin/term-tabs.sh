@@ -99,7 +99,8 @@ tabStringMac() {
     end
     tell application "Terminal"
         activate
-        do script with command "cd $PWD; $*" in selected tab of the front window
+        do script with command \
+            " cd $PWD; $*" in selected tab of the front window
     end
 
 EOF
