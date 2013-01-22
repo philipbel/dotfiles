@@ -34,7 +34,9 @@ linuxOpenTabs() {
     local terminal=
 
     # see .zsh/alias.zsh
-    if [ "$DESKTOP_SESSION" = "kde-plasma" ]; then
+    if [ "$DESKTOP_SESSION" = "kde-plasma" -o \
+         "$KDE_SESSION_VERSION" = "4" -o \
+         -n "$KDEDIRS" ]; then
         de=kde
         terminal=konsole
     elif [ "$DESKTOP_SESSION" = "gnome" ]; then
