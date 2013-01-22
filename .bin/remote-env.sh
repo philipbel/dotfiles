@@ -28,7 +28,11 @@ done
 
 if [ -n "$HOST" ]; then
     CMD="ssh $HOST -t"
+    echo "$self: Connecting to $HOST"
+else
+    echo "$self: Local connection"
 fi
+
 
 SESSIONS=$($CMD tmux ls 2>/dev/null | cut -d':' -f1) || exit 1
 
