@@ -36,6 +36,9 @@ source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
 PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 
+if [ -d ~/Library/Python/2.7/bin ]; then
+    PATH=~/Library/Python/2.7/bin:$PATH
+fi
 
 # Git scripts path
 PATH=$PATH:~/.git-shell-scripts.git
