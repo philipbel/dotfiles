@@ -4,3 +4,6 @@
 [submodule ".vimpager.git"]
 	path = .vimpager.git
 	url = https://github.com/rkitover/vimpager.git
+[submodule ".emacs.d/el-get/el-get"]
+	path = .emacs.d/el-get/el-get
+	url = https://github.com/dimitri/el-get.git
