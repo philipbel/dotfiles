@@ -36,8 +36,6 @@ source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
 PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 
-# vimpager
-PATH=$PATH:~/.vimpager.git
 
 # Git scripts path
 PATH=$PATH:~/.git-shell-scripts.git
