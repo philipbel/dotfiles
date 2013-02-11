@@ -1,3 +1,0 @@
-#name : const_cast this
-# --
-const_cast<${1} *>($2)
