@@ -141,27 +141,38 @@ function delme()
 }
 
 
+alias pkguu='pkgu && pkgupg'
 # Package management
 if which aptitude >/dev/null 2>&1; then
     alias pkgi='sudo aptitude install'
     alias pkgr='sudo aptitude remove'
     alias pkgu='sudo aptitude update'
     alias pkgupg='sudo aptitude upgrade'
-    alias pkgs='aptitude source'
+    alias pkgs='apt-cache search'
+    alias pkgl='dpkg -L'
 elif which yum >/dev/null 2>&1; then
     alias pkgi='sudo yum install'
     alias pkgr='sudo yum remove'
     alias pkgu='sudo yum update'
     alias pkgupg='sudo yum upgrade'
     alias pkgs='yum search'
+    alias pkgl='rpm -q --filesbypkg'
+elif which pacman >/dev/null 2>&1; then
+    alias pkgi='sudo pacman -S'
+    alias pkgr='sudo pacman -R'
+    alias pkgu='sudo pacman -U'
+    alias pkgupg='sudo pacman -Su'
+    alias pkgs='pacman -Qs'
+    alias pkgl='pacman -Qn'
 elif which brew >/dev/null 2>&1; then
     alias pkgi='brew install'
     alias pkgr='brew uninstall'
     alias pkgu='brew update'
     alias pkgupg='brew upgrade'
     alias pkgs='brew search'
+    alias pkgl='brew list'
 fi
-alias pkguu='pkgu && pkgupg'
+
 
 alias rsync='rsync -avz -e ssh'
 
