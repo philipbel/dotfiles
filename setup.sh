@@ -58,7 +58,7 @@ if `git --version >/dev/null`; then
     fi
     popd >/dev/null
 else
-    msg "Git not found.  Vim setup will be incomplete" 
+    msg "Git not found.  Vim setup will be incomplete"
 fi
 
 ################################################################################
@@ -76,27 +76,24 @@ README.md
 # $3 - path to test for match
 function match() {
     # resolve ~
-    eval dir=$1
-    local pattern=$2
-    eval path=$3
+    eval dir="$1"
+    local pattern="$2"
+    eval path="$3"
 
     local result=$(find "$dir" -maxdepth 1 -name "$pattern" -print -quit)
-    echo "result = $result"
     if $(echo $result | grep $path); then
-	echo "match"
-	return 0
+        return 0
     else
-	echo "no match"
-	return 1
+        return 1
     fi
 }
 
 for i in `ls -A "$top_dir"`; do
     for j in $IGNORES; do
-	if match "$top_dir" "$j" "$i"; then
-	    msg "Ignoring $i"
-	    continue
-	fi
+        if match "$top_dir" "$j" "$i"; then
+            msg "Ignoring $i"
+            continue
+        fi
         msg "Symlinking $i"
         ln -sf "$top_dir/$i" ~/
     done
