@@ -8,6 +8,19 @@ if [[ $ZSH_PROFILE_RC -gt 0 ]] ; then
 fi
 # }}}
 
+case `uname -s` in
+    Darwin)
+        IS_DARWIN=1
+        ;;
+    Linux)
+        IS_LINUX=1
+        ;;
+    *)
+        echo "Unknown platform"
+        exit 1
+        ;;
+esac
+
 export TERM="xterm-256color"
 
 # set before sourcing /etc/profile so that if there're
@@ -31,10 +44,9 @@ ulimit -c 0
 
 # PATH
 
-PATH=~/.bin:~/.local/bin:/usr/local/bin:$PATH
+PATH=~/.bin:~/.local/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
 source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
-PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 
 if [ -d ~/Library/Python/2.7/bin ]; then
     PATH=~/Library/Python/2.7/bin:$PATH
@@ -52,7 +64,10 @@ if [ -d ~/.man ]; then
 fi
 
 export CCACHE_DIR=/var/tmp/ccache
-export LD_LIBRARY_PATH=~/.lib:$LD_LIBRARY_PATH:/usr/local/lib
+
+if [ "$IS_DARWIN" != "1" ]; then
+    export LD_LIBRARY_PATH=~/.lib:$LD_LIBRARY_PATH:/usr/local/lib
+fi
 
 export EDITOR=vim
 export ALTERNATE_EDITOR=nano
