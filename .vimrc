@@ -72,6 +72,8 @@ set nopaste
 set number
 set numberwidth=5
 set title
+set titleold=""
+
 set showcmd
 set cursorline
 
