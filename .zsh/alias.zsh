@@ -11,23 +11,23 @@ alias /='cd /'
 
 # ls color output work differently on Darwin
 if [ `uname -s` = "Darwin" -o `uname -s` = "FreeBSD" ]; then
-	_LS_COLOR_OPT_ON="-G"
-	_LS_COLOR_OPT_OFF=""
+    _LS_COLOR_OPT_ON="-G"
+    _LS_COLOR_OPT_OFF=""
 else
-	_LS_COLOR_OPT_ON="--color=auto"
-	_LS_COLOR_OPT_OFF="--color=none"
+    _LS_COLOR_OPT_ON="--color=auto"
+    _LS_COLOR_OPT_OFF="--color=none"
 fi
 
 
 
 if [ $TERM = "dumb" ]; then
-   	alias ls='ls ${_LS_COLOR_OPT_OFF} -h'
-	alias grep='grep --color=none'
-	alias egrep='egrep --color=none'
+    alias ls='ls ${_LS_COLOR_OPT_OFF} -h'
+    alias grep='grep --color=none'
+    alias egrep='egrep --color=none'
 else
-	alias ls='ls ${_LS_COLOR_OPT_ON} -h'
-   	alias grep='grep --color=auto'
-   	alias egrep='egrep --color=auto'
+    alias ls='ls ${_LS_COLOR_OPT_ON} -h'
+    alias grep='grep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 
@@ -83,28 +83,28 @@ function psg()
 
 function fileManager
 {
-	if [ `uname -s` = "Darwin" ]; then
-		local finder="/System/Library/CoreServices/Finder.app"
-		if [ -x "$finder/Contents/MacOS/Finder" ]; then
-			command open "$finder" $@
-		else
-			echo "fileManager(): Warning: Could not find Finder"
-		fi
-	elif [ `uname -s` = "Linux" ]; then
-		# KDE_SESSION_VERSION is better than DESKTOP_SESSION, which could be
-		# for example ``default''
-		if [ -n "$KDE_SESSION_VERSION" ]; then
-			command dolphin $@
-		elif [ "$DESKTOP_SESSION" = "gnome" ]; then
-			command nautilus $@
-		elif [ "$DESKTOP_SESSION" = "mate" ]; then
-			command caja $@
-		elif [ "$DESKTOP_SESSION" = "xfce" ]; then
-			command thunar $@
-		else
-			echo "fileManager(): Warning: There is no supported file manager"
-		fi
-	fi
+    if [ `uname -s` = "Darwin" ]; then
+        local finder="/System/Library/CoreServices/Finder.app"
+        if [ -x "$finder/Contents/MacOS/Finder" ]; then
+            command open "$finder" $@
+        else
+            echo "fileManager(): Warning: Could not find Finder"
+        fi
+    elif [ `uname -s` = "Linux" ]; then
+        # KDE_SESSION_VERSION is better than DESKTOP_SESSION, which could be
+        # for example ``default''
+        if [ -n "$KDE_SESSION_VERSION" ]; then
+            command dolphin $@
+        elif [ "$DESKTOP_SESSION" = "gnome" ]; then
+            command nautilus $@
+        elif [ "$DESKTOP_SESSION" = "mate" ]; then
+            command caja $@
+        elif [ "$DESKTOP_SESSION" = "xfce" ]; then
+            command thunar $@
+        else
+            echo "fileManager(): Warning: There is no supported file manager"
+        fi
+    fi
 }
 alias fm='fileManager'
 alias f='fm . >/dev/null 2>&1 &'
@@ -122,22 +122,22 @@ function refresh()
 
 function mdcd()
 {
-	mkdir -p $1 && cd $1
+    mkdir -p $1 && cd $1
 }
 
 # $1 = Directory to delete
 function delme()
 {
-	if [ -z "$1" ]; then
-		echo "Usage: delme DIR"
-		return
-	fi
-	local DIR=$(TMPDIR='' mktemp --dry-run -p '' -t delme-XXXXXX)
-	echo Moving $1 to $DIR
-	mv $1 $DIR
-	echo Deleting $DIR
-	nice rm -rf $DIR
-	echo $DIR removed
+    if [ -z "$1" ]; then
+        echo "Usage: delme DIR"
+        return
+    fi
+    local DIR=$(TMPDIR='' mktemp --dry-run -p '' -t delme-XXXXXX)
+    echo Moving $1 to $DIR
+    mv $1 $DIR
+    echo Deleting $DIR
+    nice rm -rf $DIR
+    echo $DIR removed
 }
 
 
@@ -168,7 +168,7 @@ alias rsync='rsync -avz -e ssh'
 # Filter out Fedora system mounts
 function mnt() {
     mount \
-    | egrep -v '^(cgroup|tmpfs|systemd-1|/sys|hugetlbfs|mqueue|sunrpc|binfmt_misc|selinuxfs|devpts|udev|/proc)'
+        | egrep -v '^(cgroup|tmpfs|systemd-1|/sys|hugetlbfs|mqueue|sunrpc|binfmt_misc|selinuxfs|devpts|udev|/proc)'
 }
 
 alias rda="command rdesktop -g 1280x960 -u Administrator "
