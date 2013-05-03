@@ -7,3 +7,6 @@
 [submodule ".emacs.d/el-get/el-get"]
 	path = .emacs.d/el-get/el-get
 	url = https://github.com/dimitri/el-get.git
+[submodule "ack.git"]
+	path = ack.git
+	url = https://github.com/petdance/ack.git
