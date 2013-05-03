@@ -105,8 +105,17 @@ if [ $TERM != "dumb" ]; then
 fi
 
 
+###############################################################################
 # Python
+###############################################################################
 export PYTHONDONTWRITEBYTECODE=1
+for i in /usr/local/lib/python*/; do
+    local dir="$i/site-packages"
+    if [ -d "$dir" ]; then
+        PYTHONPATH=$dir:$PYTHONPATH
+    fi
+done
+export PYTHONPATH
 
 
 ###############################################################################
