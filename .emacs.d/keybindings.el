@@ -28,6 +28,9 @@
 (global-set-key (kbd "M-g") 'goto-line)
 (global-set-key (kbd "<M-return>") 'complete-tag)
 
+(global-set-key (kbd "C-x C-/") 'goto-last-change)
+
+
 ;; New Line and Indent
 (defun my-new-line-and-indent()
   (define-key c-mode-base-map "\C-m" 'c-context-line-break))
