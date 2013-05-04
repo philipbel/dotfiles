@@ -29,7 +29,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Settings
 (defvar emacs-dir (file-name-as-directory "~/.emacs.d"))
-(defvar emacs-packages-dir (file-name-as-directory (concat emacs-dir "el-get")))
+(defvar el-get-dir (file-name-as-directory (concat emacs-dir "el-get")))
+(defvar el-get-src-dir (file-name-as-directory
+			(concat el-get-dir "el-get.git")))
+(add-to-list 'load-path el-get-src-dir)
+
 
 (load-file (concat emacs-dir "packages.el"))
 (load-file (concat emacs-dir "settings.el"))
