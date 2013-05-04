@@ -17,9 +17,7 @@ function die() {
 ################################################################################
 
 REQUIRED_EXECUTABLES="
-ruby
 make
-perl
 ctags
 git
 hg
@@ -27,11 +25,9 @@ hg
 function show_required_packages() {
     msg "*************************************************************************"
     msg "You need the following packages:"
-    msg "- ruby"
-    msg "- ruby-dev (mkmf module)"
-    msg "- exuberant-ctags"
-    msg "- git"
-    msg "- mercurial (hg)"
+    for e in $REQUIRED_EXECUTABLES; do
+	msg "- $p"
+    done
     msg "*************************************************************************"
 }
 
@@ -42,6 +38,16 @@ for i in $REQUIREMENTS; do
         exit
     fi
 done
+
+################################################################################
+# Emacs
+################################################################################
+
+EMACS_PACKAGE_DIR="$top_dir/.emacs.d/el-get"
+
+msg "Removing Emacs package directory: $EMACS_PACKAGE_DIR"
+rm -rf "$EMACS_PACKAGE_DIR"
+
 
 ################################################################################
 # Git
@@ -58,7 +64,7 @@ if `git --version >/dev/null`; then
     fi
     popd >/dev/null
 else
-    msg "Git not found.  Vim setup will be incomplete"
+    msg "Git not found. Setup will be incomplete"
 fi
 
 ################################################################################
@@ -76,12 +82,12 @@ README.md
 # $3 - path to test for match
 function match() {
     # resolve ~
-    eval dir="$1"
+    local dir="$(cd $1; pwd)"
     local pattern="$2"
-    eval path="$3"
+    local path="$3"
 
     local result=$(find "$dir" -maxdepth 1 -name "$pattern" -print -quit)
-    if $(echo $result | grep $path); then
+    if echo $result | grep $path >/dev/null; then
         return 0
     else
         return 1
@@ -89,23 +95,19 @@ function match() {
 }
 
 for i in `ls -A "$top_dir"`; do
+    ignored=false
     for j in $IGNORES; do
         if match "$top_dir" "$j" "$i"; then
             msg "Ignoring $i"
-            continue
+	    ignored=true
+	    break
         fi
+    done
+    if ! $ignored; then
         msg "Symlinking $i"
         ln -sf "$top_dir/$i" ~/
-    done
+    fi
 done
-
-################################################################################
-# Emacs
-################################################################################
-
-msg "Initializing Emacs"
-emacs --batch --eval "(el-get-update-all)"
-
 
 ################################################################################
 # Vundle
@@ -120,14 +122,14 @@ vim +BundleInstall +qall
 # Requires Vim with Ruby support, Ruby, rake
 ################################################################################
 
-COMMANDT_DIR="$top_dir/.vim/bundle/Command-T/ruby/command-t"
-msg "Setting up Command-T"
+# COMMANDT_DIR="$top_dir/.vim/bundle/Command-T/ruby/command-t"
+# msg "Setting up Command-T"
 
-pushd "$COMMANDT_DIR" >/dev/null \
-    || die "Cannot enter Command-T dir $COMMANDT_DIR"
-ruby extconf.rb || die "Failed to configure Command-T"
-make || die "Make failed"
-popd >/dev/null
+# pushd "$COMMANDT_DIR" >/dev/null \
+#     || die "Cannot enter Command-T dir $COMMANDT_DIR"
+# ruby extconf.rb || die "Failed to configure Command-T"
+# make || die "Make failed"
+# popd >/dev/null
 
-msg "Command-T successfully set up"
+# msg "Command-T successfully set up"
 
