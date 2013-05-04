@@ -165,7 +165,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; yasnippet
-(setq yas-snippet-dirs (concat emacs-packages-dir "yasnippet/snippets"))
+(setq yas-snippet-dirs (concat el-get-dir "yasnippet/snippets"))
 (yas-global-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
