@@ -1,12 +1,9 @@
 [submodule ".vim/vundle.git"]
 	path = .vim/vundle.git
 	url = http://github.com/gmarik/vundle.git
-[submodule ".vimpager.git"]
-	path = .vimpager.git
-	url = https://github.com/rkitover/vimpager.git
-[submodule ".emacs.d/el-get/el-get"]
-	path = .emacs.d/el-get/el-get
-	url = https://github.com/dimitri/el-get.git
 [submodule "ack.git"]
 	path = ack.git
 	url = https://github.com/petdance/ack.git
+[submodule ".emacs.d/el-get/el-get.git"]
+	path = .emacs.d/el-get/el-get.git
+	url = https://github.com/dimitri/el-get.git
