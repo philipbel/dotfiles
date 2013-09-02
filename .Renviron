@@ -1,2 +1,5 @@
-R_LIBS_USER = "~/.R/%p-library/%v"
+sysname <- Sys.info()[['sysname']]
 
+if (sysname == 'Linux') {
+  R_LIBS_USER = "~/.R/%p-library/%v"
+}
