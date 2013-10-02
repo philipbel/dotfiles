@@ -106,9 +106,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; parantheses
 (define-globalized-minor-mode global-highlight-parentheses-mode
- highlight-parentheses-mode
- (lambda ()
-   (highlight-parentheses-mode t)))
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -176,13 +176,17 @@
 (autoload 'whitespace-toggle-options "whitespace"
   "Toggle local whitespace options." t)
 (defun my-whitespace-style ()
-  ;; (setq whitespace-line-column nil)
   (setq whitespace-style '(face
                            trailing
                            lines-tail
                            tabs))
   (whitespace-mode t)
-)
+  )
+;; setting whitespace-line-column to nil should do the trick, but
+;; it doesn't seem to work, hence this:
+(add-hook 'whitespace-mode-hook
+          (lambda () (set (make-local-variable 'whitespace-line-column)
+                          fill-column)))
 
 (add-hook 'find-file-hook 'my-whitespace-style)
 
@@ -197,7 +201,7 @@
  ido-enable-flex-matching t
  ido-use-filename-at-point 'guess
  ido-use-virtual-buffers t
-  )
+ )
 (ido-everywhere t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
