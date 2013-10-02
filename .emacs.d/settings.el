@@ -308,18 +308,27 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; AUCTeX
 
-(add-hook
- 'LaTeX-mode-hook
+(add-hook 'LaTeX-mode-hook
  (lambda ()
    (setq TeX-parse-self t)           ; Enable parse on load.
    (setq TeX-auto-save t)            ; Enable parse on save.
    (setq TeX-global-PDF-mode t)      ; PDF by default
    (turn-on-reftex)
+   (flyspell-mode)
+   (setq fill-column 100)
+   ;; whitespace doesn't refresh automatically
+   (whitespace-mode -1)
+   (setq whitespace-style '(face
+                            trailing
+                            ;; lines-tail
+                            tabs))
+   (whitespace-mode t)
    ;; Use the open command on OS X
    (when on-mac
      (setq TeX-output-view-style
            '("^pdf$" "." open %o)))
-   ))
+   )
+ )
 (add-hook 'TeX-mode-hook (lambda()
                            (TeX-PDF-mode t)
                            ))
