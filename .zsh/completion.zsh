@@ -6,6 +6,11 @@ if [[ -e "/usr/local/share/zsh-completions" ]]; then
 fi
 
 
+if [[ -e "/usr/local/share/zsh/site-functions" ]]; then
+    fpath=(/usr/local/share/zsh/site-functions $fpath)
+fi
+
+
 autoload -U compinit 
 compinit
 
