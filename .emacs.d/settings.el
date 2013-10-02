@@ -30,7 +30,7 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (eval-after-load "ispell"
   '(when (executable-find ispell-program-name)
-   (add-hook 'text-mode-hook 'turn-on-flyspell)))
+     (add-hook 'text-mode-hook 'turn-on-flyspell)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; frames
@@ -235,11 +235,11 @@
 (defun xml-pretty-print-region (start end)
   (interactive "r")
   (let ;;((b (get-buffer-create "*xml*")))
-    ;; (switch-to-buffer-other-window b)
-    ;; (xml-mode)
-    ;; (erase-buffer)
-    ;; (other-window -1)
-    (goto-char end)
+      ;; (switch-to-buffer-other-window b)
+      ;; (xml-mode)
+      ;; (erase-buffer)
+      ;; (other-window -1)
+      (goto-char end)
     (let ((e (point-marker)))
       (join-broken-lines start end)
       (call-process-region start e "xml-pretty-print.pl" nil t))))
@@ -263,6 +263,8 @@
       (re-search-forward "<?xml[^>]*>" e)
       (xml-pretty-print-region (point) e))))
 
+;; NOTE: C-M-i completes in nxml mode
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; any-ini-mode
 (add-to-list 'auto-mode-alist '(".*\\.ini$" . any-ini-mode))
@@ -277,12 +279,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; doc-mode & asciidoc
-(add-to-list 'auto-mode-alist '("\\.adoc$" . doc-mode))
-(add-to-list 'auto-mode-alist '("\\.asciidoc$" . doc-mode))
-(add-hook 'doc-mode-hook
-          '(lambda ()
-             (turn-on-auto-fill)
-             (require 'asciidoc)))
+;; (add-to-list 'auto-mode-alist '("\\.adoc$" . doc-mode))
+;; (add-to-list 'auto-mode-alist '("\\.asciidoc$" . doc-mode))
+;; (add-hook 'doc-mode-hook
+;;           '(lambda ()
+;;              (turn-on-auto-fill)
+;;              (require 'asciidoc)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Hippie Expansion
