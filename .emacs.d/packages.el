@@ -15,75 +15,82 @@
 
 (setq el-get-sources
       '(
-        ;(:name exec-path-from-shell :type elpa)
-		(:name icicles-mac :type emacswiki)
+        ;; (:name exec-path-from-shell :type elpa)
+        ;; (:name icicles-mac :type emacswiki)
         (:name nlinum :type elpa)
-        (:name pyflakes :type elpa)
-        (:name pylint :type elpa)
-        (:name python-pylint :type elpa)
+        ;; (:name pyflakes :type elpa)
+        ;; (:name pylint :type elpa)
+        ;; (:name python-pylint :type elpa)
         ;;; (:name shell-there :type elpa)
-        (:name wgrep-ack :type elpa)
-	))
+        ;; (:name wgrep-ack :type elpa)
+        ))
 
 (setq packages
       '(
-	ack
-	adoc-mode ; asciidoc mode
-	auto-complete
-	any-ini-mode
-	auctex
-	autopair
-	;;; bookmark+
-	browse-kill-ring
-	cg-mode
-	cmake-mode
-	color-theme
-	;;; csv-mode
-	;;; dirvars
-	doc-mode
-	etags-select
-	flymake
-	;;; gnuplot-mode
-	;;; google-c-style
-	goto-last-change
-	highlight-parentheses
-	htmlize
-	icicles
-	icicles-cmd1
-	icicles-cmd2
-	icicles-face
-	icicles-fn
-	icicles-iswitchb
-	icicles-mcmd
-	icicles-mode
-	icicles-opt
-	icicles-var
-	json
-	lua-mode
-	;;; mmm-mode
-	mode-compile
-	move-text
-	nxhtml
-	qmake-mode
-	;redo+
-	;;; session
-	slime
-	sourcepair
-	switch-window
-	;;; tabbar
-	unbound
-	undo-tree
-	vline
-	wgrep
-	wrap-region
-	xgtags
-	;;; xscope+
-	yasnippet
-	zenburn-theme
-       ))
+        ;; ack
+        auto-complete
+        any-ini-mode
+        ;; asciidoc
+        auctex
+        autopair
+        ;; bookmark+
+        browse-kill-ring
+        ;; cg-mode
+        cmake-mode
+        ;; color-theme
+        csv-mode
+        ;; dirvars
+        doc-mode
+        ;; Emacs-Groovy-Mode
+        ess
+        etags-select
+        ;; flymake
+        ;; gnuplot-mode
+        ;; google-c-style
+        goto-last-change
+        highlight-parentheses
+        htmlize
+        ;; icicles
+        ;; icicles-cmd1
+        ;; icicles-cmd2
+        ;; icicles-face
+        ;; icicles-fn
+        ;; icicles-iswitchb
+        ;; icicles-mcmd
+        ;; icicles-mode
+        ;; icicles-opt
+        ;; icicles-var
+        ;; json
+        lua-mode
+        ;;; mmm-mode
+        ;; mode-compile
+        ;; move-text
+        ;; nxhtml
+        pymacs
+        python-pep8
+        ;; python-pylint
+        qmake-mode
+        ;; redo+
+        ropemacs
+        ;; session
+        slime
+        sourcepair
+        switch-window
+        ;; tabbar
+        unbound
+        undo-tree
+        vline
+        ;; web-mode
+        wgrep
+        wrap-region
+        xgtags
+        ;; xscope+
+        yasnippet
+        zenburn-theme
+        ))
 
-;(when on-mac
-;  (add-to-list 'packages 'icicles-mac))
+;; (when on-mac
+;;  (add-to-list 'packages 'icicles-mac))
 
 
 (setq packages
@@ -94,8 +101,8 @@
 
 (when (not (file-readable-p el-get-recipe-path-emacswiki))
   (message "Emacswiki directory %s doesn't exist, refreshing..."
-	   el-get-recipe-path-emacswiki)
+           el-get-recipe-path-emacswiki)
   (el-get-emacswiki-refresh el-get-recipe-path-emacswiki t)
-)
+  )
 
 (el-get 'sync packages)
