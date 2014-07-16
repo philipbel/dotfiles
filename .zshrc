@@ -44,7 +44,7 @@ ulimit -c 0
 
 # PATH
 
-PATH=~/.bin:~/.local/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
+PATH=~/.bin:~/bin:~/.local/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
 source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
 
@@ -109,7 +109,7 @@ fi
 # Python
 ###############################################################################
 export PYTHONDONTWRITEBYTECODE=1
-for i in /usr/local/lib/python*/; do
+for i in $(find /usr/local/lib -type d -name 'python*'); do
     local dir="$i/site-packages"
     if [ -d "$dir" ]; then
         PYTHONPATH=$dir:$PYTHONPATH
