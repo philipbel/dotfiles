@@ -42,7 +42,7 @@
         ;; dirvars
         doc-mode
         ;; Emacs-Groovy-Mode
-        ess
+        ;; ess
         etags-select
         ;; flymake
         ;; gnuplot-mode
@@ -73,7 +73,7 @@
         ;; redo+
         ropemacs
         ;; session
-        slime
+        ;; slime
         sourcepair
         switch-window
         ;; tabbar
@@ -86,7 +86,7 @@
         xgtags
         ;; xscope+
         yasnippet
-        zenburn-theme
+        zenburn
         ))
 
 ;; (when on-mac
