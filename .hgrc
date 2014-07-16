@@ -1,0 +1,5 @@
+[http_proxy]
+host = http://proxyeu.bloomberg.com:81
+
+[web]
+cacerts = 
