@@ -24,6 +24,7 @@
 (auto-fill-mode t)
 ;; (set-default 'imenu-auto-rescan t)
 (recentf-mode t)
+(setq vc-follow-symlinks t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; text-mode
@@ -302,8 +303,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; dirvars
-;; (setq enable-local-eval t)
+(setq enable-local-variables :all)
 ;; (put 'eval 'safe-local-variable nil)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; AUCTeX
@@ -354,7 +356,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; nxhtml-mode
-(nxhtml-global-minor-mode -1)
+;; (nxhtml-global-minor-mode -1)
 
 
 
