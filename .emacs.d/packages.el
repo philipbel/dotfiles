@@ -30,7 +30,7 @@
         ;; ack
         auto-complete
         any-ini-mode
-        ;; asciidoc
+        asciidoc
         auctex
         autopair
         ;; bookmark+
@@ -60,12 +60,13 @@
         ;; icicles-mode
         ;; icicles-opt
         ;; icicles-var
-        ;; json
+        json
         lua-mode
         ;;; mmm-mode
         ;; mode-compile
         ;; move-text
         ;; nxhtml
+        protobuf-mode
         pymacs
         python-pep8
         ;; python-pylint
