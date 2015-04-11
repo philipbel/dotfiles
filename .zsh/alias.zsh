@@ -150,6 +150,13 @@ if which aptitude >/dev/null 2>&1; then
     alias pkgupg='sudo aptitude upgrade'
     alias pkgs='apt-cache search'
     alias pkgl='dpkg -L'
+elif which apt-get >/dev/null 2>&1; then
+    alias pkgi='sudo apt-get install'
+    alias pkgr='sudo apt-get remove'
+    alias pkgu='sudo apt-get update'
+    alias pkgupg='sudo apt-get upgrade'
+    alias pkgs='apt-cache search'
+    alias pkgl='dpkg -L'
 elif which yum >/dev/null 2>&1; then
     alias pkgi='sudo yum install'
     alias pkgr='sudo yum remove'
