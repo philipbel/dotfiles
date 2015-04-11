@@ -46,3 +46,5 @@
 	prompt = false
 [cola]
 	tabwidth = 4
+[push]
+	default = simple
