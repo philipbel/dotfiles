@@ -1,0 +1,82 @@
+"*":
+  "exception-reporting":
+    userId: "9654b360-7c9b-1df3-72b2-fcb94d0b6241"
+  welcome:
+    showOnStartup: false
+  core:
+    autoHideMenuBar: true
+    projectHome: "/home/phil/dev"
+    themes: [
+      "atom-dark-ui-slim"
+      "atom-dark-syntax"
+    ]
+    disabledPackages: [
+      "symbols-view"
+      "csslint"
+      "markdown-preview"
+    ]
+  editor:
+    invisibles: {}
+    backUpBeforeSaving: true
+    fontSize: 13
+    showIndentGuide: true
+    zoomFontWhenCtrlScrolling: false
+    fontFamily: "Fira Mono"
+    tabType: "soft"
+  minimap:
+    absoluteMode: true
+  "atom-beautify":
+    _analyticsUserId: "d2e07005-7599-4714-8f3f-a15678f2cf44"
+    js_space_after_anon_function: true
+    js_indent_size: 4
+  pigments: {}
+  csscomb:
+    spaceAfterOpeningBrace: " "
+  linter:
+    errorPanelHeight: 46
+  "spell-check": {}
+  "autoclose-html": {}
+  "close-tags": {}
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
+  csslint:
+    hideOnNoErrors: true
+    useFoldModeAsDefault: true
+  "one-light-ui":
+    layoutMode: "Compact"
+  "file-icons":
+    coloured: false
+  "atom-ctags":
+    GotoSymbolKey: [
+      "ctrl"
+    ]
+    autoBuildTagsWhenActive: true
+  emmet: {}
+  "markdown-preview-plus": {}
+  "unity-ui":
+    showIcons: true
+    colorStatusIndicatorsInTreeView: true
+  "atom-material-ui":
+    accentColor: "Orange"
+    showTabIcons: "Show on all tabs"
+    compactTreeView: true
+    depth: true
+    rippleAccentColor: true
+  "isotope-light-ui":
+    customBackgroundColor: "false"
+    backgroundGradient: true
+    fontFamily: "Roboto"
+    fontWeight: "Regular"
+  deprecated:
+    tool:
+      gulp: true
+  build: {}
+  "atom-typescript":
+    showSemanticView: true
+".source.ts.tsx":
+  editor:
+    tabLength: 2
+".source.ts":
+  editor:
+    tabLength: 4
+    softWrap: true
