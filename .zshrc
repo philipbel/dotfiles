@@ -44,9 +44,10 @@ ulimit -c 0
 
 # PATH
 
-PATH=~/.bin:~/bin:~/.local/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
+PATH=~/.bin:~/bin:~/opt/bin:~/.local/bin:$PATH
 source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
+# PATH=$PATH:/sbin
 
 if [ -d ~/Library/Python/2.7/bin ]; then
     PATH=~/Library/Python/2.7/bin:$PATH
@@ -57,6 +58,8 @@ PATH=$PATH:~/.git-shell-scripts.git
 export PATH
 
 #export ZLS_COLORS=$LS_COLORS
+
+# MANTPATH
 
 export MANPATH=/usr/local/share/man:$MANPATH
 if [ -d ~/.man ]; then
