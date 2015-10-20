@@ -26,6 +26,7 @@
     commitmsgwidth = 79
     spellingdictionary = en_US
     editor = emacs
+	tabsize = 4
 
 [include]
     path = .gitconfig.local
