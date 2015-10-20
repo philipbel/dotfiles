@@ -156,6 +156,13 @@ elif which apt-get >/dev/null 2>&1; then
     alias pkgu='sudo apt-get update'
     alias pkgupg='sudo apt-get upgrade'
     alias pkgs='apt-cache search'
+elif which dnf >/dev/null 2>&1; then
+    alias pkgi='sudo dnf install'
+    alias pkgr='sudo dnf remove'
+    alias pkgu='sudo dnf update'
+    alias pkgupg='sudo dnf upgrade'
+    alias pkgs='dnf search'
+    alias pkgl='rpm -q --filesbypkg'
     alias pkgl='dpkg -L'
 elif which yum >/dev/null 2>&1; then
     alias pkgi='sudo yum install'
