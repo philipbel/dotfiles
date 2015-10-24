@@ -1,0 +1,152 @@
+\NeedsTeXFormat{LaTeX2e}[1994/12/01]
+\ProvidesPackage{phmath}[2012/01/30 v0.75]
+%\ProcessOptions\relax
+
+\RequirePackage[british]{babel}
+\RequirePackage[a4paper,hmargin=2cm,vmargin=3cm]{geometry}
+\RequirePackage{hyperref}
+\RequirePackage{amsmath, amssymb}
+\RequirePackage{tikz}
+% \RequirePackage{pgfplots}
+\RequirePackage{etoolbox}
+\RequirePackage{booktabs}
+\RequirePackage{siunitx}
+\RequirePackage{cancel}
+\RequirePackage[framemethod=tikz]{mdframed}
+\RequirePackage{amsthm, thmtools}
+%\RequirePackage[amsthm, hyperref]{ntheorem}
+% \RequirePackage{MnSymbol}
+% \RequirePackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\RequirePackage{wasysym} % for the \lightning symbol
+\RequirePackage{commath} % for \od, etc.
+
+\RequirePackage{graphicx}
+\setkeys{Gin}{width=0.85\linewidth} % Default width
+\graphicspath{{./figures/}}
+
+
+\RequirePackage{parskip} % adjusts parskip and sets parindent to 0 (undesirable)
+\setlength{\parindent}{1em}
+% \setlength{\parskip}{1em} % changes vertical space between paragraphs
+% \setlength{\parskip}{\baselineskip} % 1 line
+
+
+% \AtEndEnvironment{example}{\null\hfill\qedsymbol}
+
+% Remove QED from proof
+% \renewcommand{\qed}{}
+
+\newcommand{\contradiction}{\ensuremath{\text{\upshape\Large\lightning}}}
+\newcommand{\DNE}{\ensuremath{\text{DNE\:\:\contradiction}}}
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+
+\renewcommand{\l}{\left}
+\renewcommand{\r}{\right}
+
+% Math comment
+\newcommand{\mc}[1]{\text{\slshape#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Derivatives
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \dd & co. require commath package
+
+\newcommand{\DerDisp}[3][]{
+  \ifthenelse{\equal{#1}{}}
+  {\ensuremath{\dod[]{}{#3} #2}}
+  {\ensuremath{\dod[#1]{}{#3} #2}}
+}
+\newcommand{\DerText}[3][]{
+  \ifthenelse{\equal{#1}{}}
+  {\ensuremath{\dif#2/\dif#3}}
+  {\ensuremath{\dif^{\,#1}#2/\dif#3^{#1}}}
+}
+% \newcommand{\DerText}[3][]{
+%   \ifthenelse{\equal{#1}{}}
+%   {\ensuremath{\tod[]{}{#3} #2}}
+%   {\ensuremath{\tod[#1]{}{#3} #2}}
+% }
+
+\newcommand{\dd}[3][]{
+  \mathchoice
+    {\DerDisp[#1]{#2}{#3}}% displaystyle
+    {\DerText[#1]{#2}{#3}}% textstyle
+    {\DerText[#1]{#2}{#3}}% scriptstyle
+    {\DerText[#1]{#2}{#3}}% scriptscriptstyle
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MDF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\declaretheoremstyle[
+  bodyfont=\itshape,
+  mdframed={%
+    outerlinewidth=3pt,
+    outerlinecolor=gray!60,
+    topline=false, bottomline=false, leftline=true, rightline=false,
+    skipbelow=\baselineskip, skipabove=\baselineskip,
+    innertopmargin=6pt}
+]{thmstyle}
+
+\declaretheoremstyle[
+  bodyfont=\upshape,
+  mdframed={%
+    outerlinewidth=3pt,
+    outerlinecolor=gray!60,
+    topline=false, bottomline=false, leftline=true, rightline=false,
+    skipbelow=\baselineskip, skipabove=\baselineskip,
+    innertopmargin=6pt}
+]{proofstyle}
+
+\declaretheorem[style=thmstyle,name=Theorem]{theorem}
+\declaretheorem[style=thmstyle,name=Definition]{defn}
+\declaretheorem[style=thmstyle,name=Example]{example}
+\declaretheorem[style=thmstyle,name=Lemma]{lemma}
+\declaretheorem[style=proofstyle,numbered=no,name=Solution]{solution}
+
+
+% Outputs a hyperlink containing both the name, the number and the title, e.g.
+% Theorem 2.1 (title)
+% \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} (\nameref*{#1})}}
+\newcommand*{\fullref}[1]{{\hyperref[{#1}]{\autoref*{#1} (\nameref*{#1})}}}
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+\makeatletter
+\AtBeginDocument{
+  \hypersetup{
+    pdftitle = {\@title},
+    pdfauthor = {\@author}
+  }
+}
+\makeatother
+
+
+\author{Philip~P.~Belemezov,
+  \href{mailto:philip@belemezov.net}{philip@belemezov.net}}
+
+
+\newcommand{\phcontents}{%
+  \addcontentsline{toc}{section}{Contents}
+  \tableofcontents
+  \cleardoublepage
+  % \phantomsection
+  \addcontentsline{toc}{section}{List of Theorems, Definitions, and Examples}
+  \renewcommand{\listtheoremname}{List of Theorems, Definitions, and Lemmata}
+  \listoftheorems[ignoreall, show={theorem,defn,lemma}]
+  % \cleardoublepage
+  % \phantomsection
+  % \listtheorems{theorem,defn,example,lemma}
+  \addcontentsline{toc}{section}{List of Figures}
+  \listoffigures
+  \cleardoublepage
+}
+
+
+\endinput
