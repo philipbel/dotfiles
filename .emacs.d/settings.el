@@ -1,5 +1,5 @@
 (menu-bar-mode (if on-mac 1 0))
-(setq
+(setq-default
  bell-volume 0
  fill-column 79
  inhibit-startup-echo-area-message t
@@ -7,6 +7,8 @@
  scroll-step 1
  show-paren-delay 0
  visible-bell t
+ sentence-end-double-space t
+ require-final-newline t
  )
 
 (blink-cursor-mode -1)
@@ -26,12 +28,22 @@
 (recentf-mode t)
 (setq vc-follow-symlinks t)
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Spell Checking
+(setq flyspell-issue-message-flag nil)
+(when (executable-find "hunspell")
+  (setq ispell-program-name "hunspell")
+  (setq ispell-really-hunspell t)
+  (eval-after-load "ispell"
+    '(progn (defun ispell-get-coding-system () 'utf-8))))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; text-mode
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
-(eval-after-load "ispell"
-  '(when (executable-find ispell-program-name)
-     (add-hook 'text-mode-hook 'turn-on-flyspell)))
+(add-hook 'text-mode-hook 'turn-on-flyspell)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; frames
@@ -181,7 +193,8 @@
                            trailing
                            lines-tail
                            tabs))
-  (whitespace-mode t)
+  (whitespace-mode 0)
+  (whitespace-mode 1)
   )
 ;; setting whitespace-line-column to nil should do the trick, but
 ;; it doesn't seem to work, hence this:
@@ -231,7 +244,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; xml
-; nxml-mode is the default xml editing mode now
+;; nxml-mode is the default xml editing mode now
 ;; See https://curiousprogrammer.wordpress.com/2009/02/27/pretty-printing-xml/
 (defun xml-pretty-print-region (start end)
   (interactive "r")
@@ -316,7 +329,7 @@
    (setq TeX-auto-save t)            ; Enable parse on save.
    (setq TeX-global-PDF-mode t)      ; PDF by default
    (turn-on-reftex)
-   (flyspell-mode)
+   (turn-on-flyspell)
    (setq fill-column 100)
    ;; whitespace doesn't refresh automatically
    (whitespace-mode -1)
@@ -335,28 +348,100 @@
                            (TeX-PDF-mode t)
                            ))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Mac OS X
+(when on-mac
+  ;; Let Cocoa handle alt/option (international input)
+  (setq mac-option-modifier nil)
+  ;; Command is meta
+  (setq mac-command-modifier 'meta)
+  )
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; bs (buffer switching)
 (setq bs-default-sort-name "by name")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GDB
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer nil)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; session
 ;;(add-hook 'after-init-hook 'session-initialize)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; qmake-mode
 ;; remove the Qmake menu item
 (global-unset-key [menu-bar qmake-menu])
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; nxhtml-mode
 ;; (nxhtml-global-minor-mode -1)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; web-mode
+
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Groovy
+;; (autoload 'groovy-mode "groovy-mode" "Groovy editing mode." t)
+
+;; use groovy-mode when file ends in .groovy or has #!/bin/groovy at start
+;; (add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+;; (add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
+
+;; Gradle is Groovy
+;; (add-to-list 'auto-mode-alist '("\.gradle$" . groovy-mode))
+
+;;; make Groovy mode electric by default.
+;; (add-hook 'groovy-mode-hook
+;;           '(lambda ()
+;;              (require 'groovy-electric)
+;;              (groovy-electric-mode)))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; auto-complete
+;;(require 'auto-complete-config)
+;;(ac-config-default)
+;;(global-auto-complete-mode t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; sourcepair
+(load-file (concat el-get-dir "sourcepair/sourcepair.el"))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GLSL (from https://github.com/jimhourihan/glsl-mode)
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Scala (scala-mode2) <https://github.com/hvesalai/scala-mode2>
+(add-to-list 'auto-mode-alist '("\\.sbt$" . scala-mode))
+(add-hook 'scala-mode-hook
+          (lambda ()
+            (setq scala-indent:align-forms t)
+            (setq scala-indent:align-parameters t)
+            (setq scala-indent:indent-value-expression t)
+            ))
 
 
 

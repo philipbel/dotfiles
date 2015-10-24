@@ -46,3 +46,4 @@
 ;;      )
 ;;  ad-do-it))
 
+;; (load-theme 'zenburn t)

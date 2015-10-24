@@ -8,6 +8,7 @@
 (global-set-key (kbd "C-x C-c") 'quit-emacs-prompt)
 (global-set-key (kbd "C-x C-b") 'bs-show) ;; Buffer switching
 (global-set-key (kbd "M-/") 'hippie-expand) ;; Expansion
+(global-set-key (kbd "C-,") 'completion-at-point)
 
 ;; Scrolling (Mouse Wheel)
 (global-set-key (kbd "<mouse-5>") 'sd-mousewheel-scroll-up)
@@ -50,6 +51,10 @@
 ;; (global-set-key (kbd "<f2>") 'server-start)
 
 
+;; Spelling
+(global-set-key [f2] 'flyspell-mode)
+
+
 ;; Indent & Unindent
 (global-set-key (kbd "C-M->") 'shift-right)
 (global-set-key (kbd "C-M-<") 'shift-left)
@@ -85,6 +90,12 @@
 ;; spell check (normally bound to M-TAB, but this interferes with WMs)
 (global-set-key (kbd "C-?") 'ispell-complete-word)
 (global-set-key (kbd "C-M-?") 'ispell-comments-and-strings)
+
+(eval-after-load "flyspell"
+  '(progn
+     (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
+     (define-key flyspell-mouse-map [mouse-3] #'undefined)))
+
 
 ;; man page (C-x m is initially mapped to `compose-mail', but I don't care)
 (global-set-key (kbd "C-x m") 'man)
@@ -124,5 +135,3 @@
 ;; etags-select
 (global-set-key "\M-?" 'etags-select-find-tag-at-point)
 (global-set-key "\M-." 'etags-select-find-tag)
-
-

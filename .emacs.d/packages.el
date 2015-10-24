@@ -1,16 +1,22 @@
-(require 'el-get)
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (let (el-get-master-branch)
+      (goto-char (point-max))
+      (eval-print-last-sexp))))
 
 ;; Remove the old values
-(delete 'el-get-recipe-path-emacswiki el-get-recipe-path)
-(delete 'el-get-recipe-path-elpa el-get-recipe-path)
+;; (delete 'el-get-recipe-path-emacswiki el-get-recipe-path)
+;; (delete 'el-get-recipe-path-elpa el-get-recipe-path)
 
 ;; The defaults are emacs-dir/el-get/el-get/recipes/{emacswiki,elpa}
-(setq el-get-recipe-path-emacswiki (concat el-get-src-dir "recipes/emacswiki"))
-(setq el-get-recipe-path-elpa (concat el-get-src-dir "recipes/elpa"))
+;; (setq el-get-recipe-path-emacswiki (concat el-get-src-dir "recipes/emacswiki"))
+;; (setq el-get-recipe-path-elpa (concat el-get-src-dir "recipes/elpa"))
 
 ;; Re-add them to the list
-(add-to-list 'el-get-recipe-path el-get-recipe-path-emacswiki)
-(add-to-list 'el-get-recipe-path el-get-recipe-path-elpa)
+;; (add-to-list 'el-get-recipe-path el-get-recipe-path-emacswiki)
+;; (add-to-list 'el-get-recipe-path el-get-recipe-path-elpa)
 
 
 (setq el-get-sources
@@ -23,12 +29,17 @@
         ;; (:name python-pylint :type elpa)
         ;;; (:name shell-there :type elpa)
         ;; (:name wgrep-ack :type elpa)
+        (:name glsl-mode
+               :website https://github.com/jimhourihan/glsl-mode
+               :description "GLSL major mode"
+               :type github
+               :pkgname "jimhourihan/glsl-mode")
         ))
 
 (setq packages
       '(
         ;; ack
-        auto-complete
+        ;; auto-complete
         any-ini-mode
         asciidoc
         auctex
@@ -67,14 +78,18 @@
         ;; move-text
         ;; nxhtml
         protobuf-mode
+        pycomplete+
         pymacs
+        ;; python-mode
         python-pep8
         ;; python-pylint
         qmake-mode
         ;; redo+
         ropemacs
+        rust-mode
         ;; session
-        ;; slime
+        scala-mode2
+        slime
         sourcepair
         switch-window
         ;; tabbar
@@ -87,7 +102,6 @@
         xgtags
         ;; xscope+
         yasnippet
-        zenburn
         ))
 
 ;; (when on-mac

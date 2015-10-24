@@ -17,8 +17,9 @@
   (local-set-key (kbd "RET") 'c-context-line-break)
   ;; (semantic-mode)
   ;;(setq completion-at-point-functions
-  ;;      '(semantic-completion-at-point-function 
+  ;;      '(semantic-completion-at-point-function
   ;;        tags-completion-at-point-function))
+  (flyspell-prog-mode)
   )
 
 
