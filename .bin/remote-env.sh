@@ -34,10 +34,16 @@ else
 fi
 
 
-SESSIONS=$($CMD tmux ls 2>/dev/null | cut -d':' -f1) || exit 1
+OUTPUT=$($CMD tmux ls)
+if [ $? -gt 0 ]; then
+    echo "$self: Error obtaining sessions"
+    exit 1
+fi
+
+SESSIONS=$(echo "$OUTPUT" | cut -d':' -f1)
 
 if [ -z "$SESSIONS" ]; then
-    echo "$self: No remote sessions!"
+    echo "$self: No remote sessions, output from tmux was:"
     exit 1
 fi
 
