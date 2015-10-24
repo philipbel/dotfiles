@@ -42,8 +42,10 @@ ulimit -c 0
 ## Environment
 ###############################################################################
 
+###############################################################################
 # PATH
-PATH=~/.bin:~/bin:~/opt/bin;~/.local/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+PATH=~/.bin:~/bin:~/opt/bin:~/.local/bin:$PATH
 # ccache
 source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
@@ -55,11 +57,10 @@ fi
 
 # Git scripts path
 PATH=$PATH:~/.git-shell-scripts.git
+
 export PATH
 
-#export ZLS_COLORS=$LS_COLORS
 
-# MANTPATH
 
 export MANPATH=/usr/local/share/man:$MANPATH
 if [ -d ~/.man ]; then
