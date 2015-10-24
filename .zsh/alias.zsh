@@ -84,12 +84,7 @@ function psg()
 function fileManager
 {
     if [ `uname -s` = "Darwin" ]; then
-        local finder="/System/Library/CoreServices/Finder.app"
-        if [ -x "$finder/Contents/MacOS/Finder" ]; then
-            command open "$finder" $@
-        else
-            echo "fileManager(): Warning: Could not find Finder"
-        fi
+        open -a Finder $@
     elif [ `uname -s` = "Linux" ]; then
         # KDE_SESSION_VERSION is better than DESKTOP_SESSION, which could be
         # for example ``default''
