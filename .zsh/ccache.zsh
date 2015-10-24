@@ -1,7 +1,8 @@
-_CCACHE_PATH=/usr/lib/ccache
+_CCACHE_PATHS=(/usr/lib/ccache /usr/lib64/ccache /usr/local/opt/ccache/libexec)
 
-if [ ! -d "$_CCACHE_PATH" ]; then
-    _CCACHE_PATH=/usr/lib64/ccache
-fi
+for _path in $_CCACHE_PATHS; do
+    if [ -d "$_path" ]; then
+        export _CCACHE_PATH=$_path
+    fi
+done
 
-export _CCACHE_PATH

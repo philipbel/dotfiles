@@ -43,11 +43,11 @@ ulimit -c 0
 ###############################################################################
 
 # PATH
-
-PATH=~/.bin:~/bin:~/opt/bin:~/.local/bin:$PATH
+PATH=~/.bin:~/bin:~/opt/bin;~/.local/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
+# ccache
 source ~/.zsh/ccache.zsh
 PATH=$_CCACHE_PATH:$PATH
-# PATH=$PATH:/sbin
+export CCACHE_DIR=/var/tmp/ccache
 
 if [ -d ~/Library/Python/2.7/bin ]; then
     PATH=~/Library/Python/2.7/bin:$PATH
@@ -66,7 +66,6 @@ if [ -d ~/.man ]; then
 	export MANPATH=~/.man:$MANPATH
 fi
 
-export CCACHE_DIR=/var/tmp/ccache
 
 if [ "$IS_DARWIN" != "1" ]; then
     export LD_LIBRARY_PATH=~/.lib:$LD_LIBRARY_PATH:/usr/local/lib
