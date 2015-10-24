@@ -111,10 +111,11 @@ fi
 # Python
 ###############################################################################
 export PYTHONDONTWRITEBYTECODE=1
-for i in $(find /usr/local/lib/ -maxdepth 1 -type d -name 'python*'); do
+PYTHONPATH=$PYTHONPATH:~/.python.d
+for i in $(find /usr/local/lib -maxdepth 1 -type d -name 'python*'); do
     local dir="$i/site-packages"
     if [ -d "$dir" ]; then
-        PYTHONPATH=$dir:$PYTHONPATH
+        PYTHONPATH=$PYTHONPATH:$dir
     fi
 done
 export PYTHONPATH
