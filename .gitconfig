@@ -1,7 +1,7 @@
 [color]
     ui = auto
 [user]
-    name = Philip Belemezov
+	name = Philip Belemezov
     email = philip@belemezov.net
 [core]
     editor = vim
@@ -41,7 +41,7 @@
     cursor = yellow red bold
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [mergetool]
 	prompt = false
