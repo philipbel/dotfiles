@@ -5,8 +5,19 @@
 
 URL="http://localhost:8000"
 
-DIR="~/tmp/chrome-dev"
+DIR=$(mktemp -d)
 OPTS="--disable-cache --no-first-run"
 
 mkdir -p "$DIR"
-chromium --user-data-dir="$DIR" $OPTS "$URL"
+
+CHROME_APP="/Applications/Chrome.app/Contents/MacOS/Google Chrome"
+
+if [ -n "$1" ]; then
+  URL="$1"
+fi
+
+if [ $(uname -s) == "Darwin" ]; then
+  "$CHROME_APP" --user-data-dir="$DIR" $OPTS "$URL" >/dev/null
+else
+  chromium --user-data-dir="$DIR" $OPTS "$URL" >/dev/null
+fi
