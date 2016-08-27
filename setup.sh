@@ -20,7 +20,9 @@ REQUIRED_EXECUTABLES="
 make
 ctags
 git
-hg
+fasd
+most
+autojump
 "
 function show_required_packages() {
     msg "*************************************************************************"

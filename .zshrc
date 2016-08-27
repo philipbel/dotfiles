@@ -36,7 +36,7 @@ export UPDATE_ZSH_DAYS=7
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
+# under VCS as dirty. This makes status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -52,7 +52,7 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras aws fedora docker git thefuck autojump common-aliases fasd osx sublime sudo terminalapp )
+plugins=(git git-extras aws fedora docker git thefuck autojump common-aliases osx sublime sudo terminalapp )
 
 # User configuration
 

@@ -37,3 +37,5 @@ function mdcd()
 {
     mkdir -p $1 && cd $1
 }
+
+alias o="open_command"
