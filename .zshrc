@@ -1,131 +1,92 @@
-#!/bin/zsh
-# ~/.zshrc
-#
-# zsh profiling {{{
-# just execute 'ZSH_PROFILE_RC=1 zsh' and run 'zprof' to get the details
-if [[ $ZSH_PROFILE_RC -gt 0 ]] ; then
-    zmodload zsh/zprof
-fi
-# }}}
+# Path to your oh-my-zsh installation.
+export ZSH=/home/phil/.dotfiles.git/oh-my-zsh
 
-case `uname -s` in
-    Darwin)
-        IS_DARWIN=1
-        ;;
-    Linux)
-        IS_LINUX=1
-        ;;
-    *)
-        echo "Unknown platform"
-        exit 1
-        ;;
-esac
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="avit"
+#ZSH_THEME="bira"
+ZSH_THEME="gnzh"
 
-export TERM="xterm-256color"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# set before sourcing /etc/profile so that if there're
-# no matches, no warning is reported
-setopt nullglob
-[[ -e "/etc/profile" ]] && source /etc/profile
-unsetopt nullglob
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-umask 022
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=7
 
-# Enable core dumps of max 50K
-#ulimit -c unlimited
-# Disable core dumps
-ulimit -c 0
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-###############################################################################
-## Environment
-###############################################################################
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-###############################################################################
-# PATH
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-PATH=~/.bin:~/bin:~/opt/bin:~/.local/bin:$PATH
-# ccache
-source ~/.zsh/ccache.zsh
-PATH=$_CCACHE_PATH:$PATH
-export CCACHE_DIR=/var/tmp/ccache
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-if [ -d ~/Library/Python/2.7/bin ]; then
-    PATH=~/Library/Python/2.7/bin:$PATH
-fi
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Git scripts path
-PATH=$PATH:~/.git-shell-scripts.git
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-export PATH
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git git-extras aws fedora docker git thefuck autojump common-aliases fasd osx sublime sudo terminalapp )
+
+# User configuration
+
+source $ZSH/oh-my-zsh.sh
 
 
-
-export MANPATH=/usr/local/share/man:$MANPATH
-if [ -d ~/.man ]; then
-	export MANPATH=~/.man:$MANPATH
-fi
-
-
-if [ "$IS_DARWIN" != "1" ]; then
-    export LD_LIBRARY_PATH=~/.lib:$LD_LIBRARY_PATH:/usr/local/lib
-fi
-
-export EDITOR=vim
-export ALTERNATE_EDITOR=nano
-
-#if which vimpager &>/dev/null; then
-#    export PAGER=vimpager
-#elif which most &>/dev/null; then
-	export PAGER=most
-#fi
-
-# Email variables.  Used at least by bazaar
-export EMAIL="Philip Belemezov <`whoami`@`hostname`>"
-#export MAIL=~/Mail
-
-source ~/.zsh/prompt.zsh
-source ~/.zsh/alias.zsh
-source ~/.zsh/binds.zsh
-source ~/.zsh/completion.zsh
-source ~/.zsh/options.zsh
-
-
-
-# Colors attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
-# Text color codes:
-# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
-# Background color codes:
-# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
-
-if which dircolors >/dev/null 2>&1; then
-    eval `dircolors -b`
-fi
-if [ $TERM != "dumb" ]; then
-	export ZLS_COLORS=$LS_COLORS
-fi
-
-
-###############################################################################
-# Python
-###############################################################################
-export PYTHONDONTWRITEBYTECODE=1
-PYTHONPATH=$PYTHONPATH:~/.python.d
-for i in $(find /usr/local/lib -maxdepth 1 -type d -name 'python*'); do
-    local dir="$i/site-packages"
-    if [ -d "$dir" ]; then
-        PYTHONPATH=$PYTHONPATH:$dir
-    fi
+for i in $(find ~/.dotfiles.git/zsh.d -maxdepth 1 -type f -name '*.zsh' | sort | tr '\n' ' '); do
+	source "$i"
 done
-export PYTHONPATH
 
 
-###############################################################################
-# Local file
-###############################################################################
-LOCAL_ZSHRC="$HOME/.zshrc.local"
-if [ -r "$LOCAL_ZSHRC" ]; then
-    source "$LOCAL_ZSHRC"
-fi
+
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"

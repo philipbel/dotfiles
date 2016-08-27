@@ -6,3 +6,7 @@ for _path in $_CCACHE_PATHS; do
     fi
 done
 
+
+PATH=$_CCACHE_PATH:$PATH
+export CCACHE_DIR=/var/tmp/ccache
+
