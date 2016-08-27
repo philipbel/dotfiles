@@ -80,13 +80,13 @@
     showIcons: true
   welcome:
     showOnStartup: false
-".js.source":
+".source.ts.tsx":
   editor:
-    tabLength: 4
+    tabLength: 2
 ".source.ts":
   editor:
     softWrap: true
     tabLength: 4
-".source.ts.tsx":
+".js.source":
   editor:
-    tabLength: 2
+    tabLength: 4
