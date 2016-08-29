@@ -7,8 +7,8 @@ export ZSH=~/.dotfiles.git/oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="avit"
-#ZSH_THEME="bira"
-ZSH_THEME="gnzh"
+ZSH_THEME="bira"
+#ZSH_THEME="gnzh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
