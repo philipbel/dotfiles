@@ -4,7 +4,7 @@ self=`basename $0`
 top_dir=$(cd `dirname $0`; pwd)
 
 function msg() {
-    echo "$self: $@"
+    echo -e "$self: $@"
 }
 
 function die() {
@@ -76,7 +76,10 @@ fi
 IGNORES="setup.sh
 README.md
 *.swp
-*.git"
+*.git
+.DS_Store
+.config
+*~"
 
 # Test for a glob match
 # $1 - dir to check in
@@ -96,39 +99,86 @@ function match() {
     fi
 }
 
-for i in `ls -A "$top_dir"`; do
-    ignored=false
-    for j in $IGNORES; do
-        if match "$top_dir" "$j" "$i"; then
-            msg "Ignoring $i"
-	    ignored=true
-	    break
+function do_ln()
+{
+    local src=$1
+    local dst=$2
+    if [ -z "$src" -o -z "$dst" ]; then
+        die "Usage: do_ln SRC DST"
+    fi
+    msg "Symlinking $src --> $dst"
+    ln -sf "$src" "$dst"
+    local rc=$?
+    return $rc
+}
+
+
+function do_files()
+{
+    local system=$(uname -s)
+    for i in $(find "$top_dir" -maxdepth 1 -name '.*'); do
+        local file="$(basename $i)"
+        ignored=false
+        for j in $IGNORES; do
+            if match "$top_dir" "$j" "$file"; then
+                msg "Ignoring $file"
+                ignored=true
+                break
+            fi
+        done
+        if ! $ignored; then
+            do_ln "$top_dir/$file" "$HOME/$file"
+
+            if [[ "$file" =~ .*\.$system ]]; then
+                DEST=$(echo $file | sed "s/\(.*\)\.${system}/\1/")
+                msg "\tPlatform-specific file $file"
+                do_ln "$top_dir/$file" "$HOME/$DEST"
+            fi
         fi
     done
-    if ! $ignored; then
-        msg "Symlinking $i"
-        ln -sf "$top_dir/$i" ~/
+}
+do_files
+
+################################################################################
+# Config
+################################################################################
+function do_config()
+{
+    local srcdir="$top_dir/.config"
+    local dstdir="$HOME/.config"
+    if [ ! -d "$dstdir" ]; then
+        msg "Config dir $dstdir does not exist, creating"
+        mkdir -p "$dstdir"
     fi
-done
+
+    for i in $(find "$srcdir" -maxdepth 1); do
+        local file="$(basename $i)"
+        if [ "$file" = ".config" ]; then
+            continue
+        fi
+        do_ln "$srcdir/$file" "$dstdir/$file"
+    done
+}
+do_config
 
 
 ################################################################################
 # Atom
 ################################################################################
-if ! which apm > /dev/null; then
-	die "ERROR: Atom not installed (apm not found)"
-fi
-msg "Running ~/.atom/install-packages.sh"
-~/.atom/install-packages.sh
-
+# if ! which apm > /dev/null; then
+#	msg "WARN: Atom not installed (apm not found)"
+# else
+#     msg "Running ~/.atom/install-packages.sh"
+#     ~/.atom/install-packages.sh
+# fi
 
 
 ################################################################################
 # Vundle
 ################################################################################
 
-msg "Initializing Vundle"
-vim +BundleInstall +qall
+# msg "Initializing Vundle"
+# vim +BundleInstall +qall
 
 
 ################################################################################

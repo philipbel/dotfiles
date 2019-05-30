@@ -77,7 +77,7 @@
         ;; mode-compile
         ;; move-text
         ;; nxhtml
-        protobuf-mode
+        ;; protobuf-mode
         pycomplete+
         pymacs
         ;; python-mode

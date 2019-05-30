@@ -2,7 +2,8 @@
     ui = auto
 [user]
 	name = Philip Belemezov
-    email = philip@belemezov.net
+	email = philip@belemezov.net
+	signingkey = 52F571D766840F16
 [core]
     editor = vim
     excludesfile = ~/.gitignore
@@ -27,9 +28,11 @@
     spellingdictionary = en_US
     editor = emacs
 	tabsize = 4
+	fontdiff = -family \"SF Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
 
 [include]
-    path = .gitconfig.local
+    path = ~/.gitalias.txt
+    path = .gitconfig-local
 
 [tig]
     show-rev-graph = true
@@ -49,3 +52,7 @@
 	tabwidth = 4
 [push]
 	default = simple
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

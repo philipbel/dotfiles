@@ -13,3 +13,9 @@ These are my personal dot files:
 * Devilspie
 * Git
 * Some scripts
+
+# Requirements
+* gpg
+
+## macOS
+* pinentry-mac

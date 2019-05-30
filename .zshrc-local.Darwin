@@ -1,0 +1,30 @@
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+export PATH=/usr/local/texlive/2015/bin/x86_64-darwin:$PATH
+
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+# export JAVA_HOME=`/usr/libexec/java_home`
+
+# pip fails without these
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+
+# Python on macOS with Brew
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# golang
+export GOPATH=$HOME/dev/go
+export PATH=$GOPATH/bin:/usr/local/opt/go/libexec/bin:$PATH
+
+# Python
+export PIPENV_VENV_IN_PROJECT=1
+export PATH="$HOME/.poetry/bin:$PATH"
+fpath+=~/.poetry/poetry.zsh-completion
+
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+    . /usr/local/etc/profile.d/z.sh
+fi
+

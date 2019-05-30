@@ -1,3 +1,4 @@
+
 (menu-bar-mode (if on-mac 1 0))
 (setq-default
  bell-volume 0
@@ -330,7 +331,7 @@
    (setq TeX-global-PDF-mode t)      ; PDF by default
    (turn-on-reftex)
    (turn-on-flyspell)
-   (setq fill-column 100)
+   (setq fill-column 80)
    ;; whitespace doesn't refresh automatically
    (whitespace-mode -1)
    (setq whitespace-style '(face
@@ -353,8 +354,9 @@
 (when on-mac
   ;; Let Cocoa handle alt/option (international input)
   (setq mac-option-modifier nil)
-  ;; Command is meta
-  (setq mac-command-modifier 'meta)
+  ;; Command is command, alt/option is meta
+  ;; (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'meta)
   )
 
 

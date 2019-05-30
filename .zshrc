@@ -7,8 +7,9 @@ export ZSH=~/.dotfiles.git/oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="avit"
-ZSH_THEME="bira"
+#ZSH_THEME="bira"
 #ZSH_THEME="gnzh"
+ZSH_THEME="mortalscumbag"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -52,18 +53,23 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras aws fedora docker git autojump common-aliases osx sublime sudo terminalapp )
+# plugins=(git git-extras autojump common-aliases osx sublime sudo terminalapp )
 
 # User configuration
+
 
 source $ZSH/oh-my-zsh.sh
 
 
-for i in $(find ~/.dotfiles.git/zsh.d -maxdepth 1 -type f -name '*.zsh' | sort | tr '\n' ' '); do
+for i in $(find ~/.zsh.d/ -maxdepth 1 -type f -name '*.zsh' | sort | tr '\n' ' '); do
 	source "$i"
 done
+LOCAL_ZSHRC=~/.zshrc-local
+if [ -f "$LOCAL_ZSHRC" ]; then
+	source "$LOCAL_ZSHRC"
+fi
 
-
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin"
 
 
 # You may need to manually set your language environment
@@ -90,3 +96,4 @@ done
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
