@@ -19,12 +19,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export GOPATH=$HOME/dev/go
 export PATH=$GOPATH/bin:/usr/local/opt/go/libexec/bin:$PATH
 
-# Python
-export PIPENV_VENV_IN_PROJECT=1
-export PATH="$HOME/.poetry/bin:$PATH"
-fpath+=~/.poetry/poetry.zsh-completion
-
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
     . /usr/local/etc/profile.d/z.sh
 fi
-
