@@ -1,0 +1,6 @@
+set -gx PIPENV_VENV_IN_PROJECT 1
+set -gx PATH "$HOME/.poetry/bin" $PATH
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+set -gx PYTHONDONTWRITEBYTECODE 1
+
+set -gx PYTHONPATH $PYTHONPATH ~/.python.d
