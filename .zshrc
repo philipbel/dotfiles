@@ -61,7 +61,7 @@ export UPDATE_ZSH_DAYS=7
 source $ZSH/oh-my-zsh.sh
 
 
-for i in $(find ~/.zsh.d/ -maxdepth 1 -type f -name '*.zsh' | sort | tr '\n' ' '); do
+for i in $(find ~/.dotfiles.git/zsh.d/ -maxdepth 1 -type f -name '*.zsh' | sort | tr '\n' ' '); do
 	source "$i"
 done
 LOCAL_ZSHRC=~/.zshrc-local
@@ -96,4 +96,3 @@ export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
